@@ -1,0 +1,6 @@
+framework module XYHelpKit {
+  umbrella header "XYHelpKit-umbrella.h"
+
+  export *
+  module * { export * }
+}
