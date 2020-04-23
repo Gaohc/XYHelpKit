@@ -21,11 +21,11 @@ Pod::Spec.new do |s|
 TODO: Add long description of the pod here.
                        DESC
 
-  s.homepage         = 'https://github.com/gaohongcheng/XYHelpKit'
+  s.homepage         = 'https://github.com/Gaohc/XYHelpKit.git'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'gaohongcheng' => 'gaohongcheng@58.com' }
-  s.source           = { :git => 'https://github.com/gaohongcheng/XYHelpKit.git', :tag => s.version.to_s }
+  s.source           = { :git => 'https://github.com/Gaohc/XYHelpKit.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
   s.ios.deployment_target = '8.0'
