@@ -13,54 +13,51 @@
 		14AD81D52FAD9CF2C065C61FB00C3B4F /* UIImage+Diff.m in Sources */ = {isa = PBXBuildFile; fileRef = E0956940883830C651240E754E3ECC52 /* UIImage+Diff.m */; };
 		14C511527597E5846AB2627F791C7D8E /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 716A9972B9D9103B54DB950893FAF104 /* QuartzCore.framework */; };
 		14CF142AFB655751811387AD1E7EEE98 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BD4ED544B638D07C7D755AF1C27116A /* Foundation.framework */; };
-		169A6D2D8666566DDCEF6A31CFF0D4AA /* ReplaceMe.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B1D73C6311CA2F21D80408CFD2F2AB6 /* ReplaceMe.m */; };
 		242E35AC5D886429700E84DC805B6DED /* Pods-XYHelpKit_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = EC8ACF1693146C945701B4DA72D120EE /* Pods-XYHelpKit_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2DCFF0CE0BD295F1D46D3247F36B192C /* UIImage+Compare.m in Sources */ = {isa = PBXBuildFile; fileRef = EF53D290F564A9B10CEF56C9DC2010F2 /* UIImage+Compare.m */; };
 		32716255AD39B13F80BC4641797A1B91 /* Pods-XYHelpKit_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = CB693BA5DF9AD209EACCD11ED132343A /* Pods-XYHelpKit_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		40039E0AF0D764360B1D4FC4F7950D2E /* UIApplication+StrictKeyWindow.h in Headers */ = {isa = PBXBuildFile; fileRef = 0A3ACA72AE9B776E644F6D159AB3E80B /* UIApplication+StrictKeyWindow.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		668046ED2451B42C00588685 /* XYYSafeProtector.m in Sources */ = {isa = PBXBuildFile; fileRef = 668046EA2451B42C00588685 /* XYYSafeProtector.m */; };
-		668046EE2451B42C00588685 /* XYYSafeProtectorDefine.h in Headers */ = {isa = PBXBuildFile; fileRef = 668046EB2451B42C00588685 /* XYYSafeProtectorDefine.h */; };
-		668046EF2451B42C00588685 /* XYYSafeProtector.h in Headers */ = {isa = PBXBuildFile; fileRef = 668046EC2451B42C00588685 /* XYYSafeProtector.h */; };
-		668047192451B43E00588685 /* NSSet+Safe.m in Sources */ = {isa = PBXBuildFile; fileRef = 668046F12451B43E00588685 /* NSSet+Safe.m */; };
-		6680471A2451B43E00588685 /* NSOrderedSet+Safe.m in Sources */ = {isa = PBXBuildFile; fileRef = 668046F22451B43E00588685 /* NSOrderedSet+Safe.m */; };
-		6680471B2451B43E00588685 /* NSUserDefaults+Safe.h in Headers */ = {isa = PBXBuildFile; fileRef = 668046F32451B43E00588685 /* NSUserDefaults+Safe.h */; };
-		6680471C2451B43E00588685 /* NSCache+Safe.m in Sources */ = {isa = PBXBuildFile; fileRef = 668046F42451B43E00588685 /* NSCache+Safe.m */; };
-		6680471D2451B43E00588685 /* NSObject+Safe.m in Sources */ = {isa = PBXBuildFile; fileRef = 668046F52451B43E00588685 /* NSObject+Safe.m */; };
-		6680471E2451B43E00588685 /* NSMutableOrderedSet+Safe.h in Headers */ = {isa = PBXBuildFile; fileRef = 668046F62451B43E00588685 /* NSMutableOrderedSet+Safe.h */; };
-		6680471F2451B43E00588685 /* NSMutableString+Safe.h in Headers */ = {isa = PBXBuildFile; fileRef = 668046F72451B43E00588685 /* NSMutableString+Safe.h */; };
-		668047202451B43E00588685 /* NSMutableArray+Safe.m in Sources */ = {isa = PBXBuildFile; fileRef = 668046F82451B43E00588685 /* NSMutableArray+Safe.m */; };
-		668047212451B43E00588685 /* NSNotificationCenter+Safe.h in Headers */ = {isa = PBXBuildFile; fileRef = 668046F92451B43E00588685 /* NSNotificationCenter+Safe.h */; };
-		668047222451B43E00588685 /* NSString+Safe.m in Sources */ = {isa = PBXBuildFile; fileRef = 668046FA2451B43E00588685 /* NSString+Safe.m */; };
-		668047232451B43E00588685 /* NSDictionary+Safe.h in Headers */ = {isa = PBXBuildFile; fileRef = 668046FB2451B43E00588685 /* NSDictionary+Safe.h */; };
-		668047242451B43E00588685 /* NSMutableAttributedString+Safe.m in Sources */ = {isa = PBXBuildFile; fileRef = 668046FC2451B43E00588685 /* NSMutableAttributedString+Safe.m */; };
-		668047252451B43E00588685 /* NSMutableDictionary+Safe.m in Sources */ = {isa = PBXBuildFile; fileRef = 668046FD2451B43E00588685 /* NSMutableDictionary+Safe.m */; };
-		668047262451B43E00588685 /* NSData+Safe.m in Sources */ = {isa = PBXBuildFile; fileRef = 668046FE2451B43E00588685 /* NSData+Safe.m */; };
-		668047272451B43E00588685 /* NSMutableData+Safe.h in Headers */ = {isa = PBXBuildFile; fileRef = 668046FF2451B43E00588685 /* NSMutableData+Safe.h */; };
-		668047282451B43E00588685 /* NSAttributedString+Safe.m in Sources */ = {isa = PBXBuildFile; fileRef = 668047002451B43E00588685 /* NSAttributedString+Safe.m */; };
-		668047292451B43E00588685 /* NSArray+Safe.h in Headers */ = {isa = PBXBuildFile; fileRef = 668047012451B43E00588685 /* NSArray+Safe.h */; };
-		6680472A2451B43E00588685 /* NSMutableSet+Safe.m in Sources */ = {isa = PBXBuildFile; fileRef = 668047022451B43E00588685 /* NSMutableSet+Safe.m */; };
-		6680472B2451B43E00588685 /* NSObject+SafeSwizzle.h in Headers */ = {isa = PBXBuildFile; fileRef = 668047032451B43E00588685 /* NSObject+SafeSwizzle.h */; };
-		6680472C2451B43E00588685 /* NSObject+KVOSafe.m in Sources */ = {isa = PBXBuildFile; fileRef = 668047042451B43E00588685 /* NSObject+KVOSafe.m */; };
-		6680472D2451B43E00588685 /* NSMutableOrderedSet+Safe.m in Sources */ = {isa = PBXBuildFile; fileRef = 668047052451B43E00588685 /* NSMutableOrderedSet+Safe.m */; };
-		6680472E2451B43E00588685 /* NSObject+Safe.h in Headers */ = {isa = PBXBuildFile; fileRef = 668047062451B43E00588685 /* NSObject+Safe.h */; };
-		6680472F2451B43E00588685 /* NSCache+Safe.h in Headers */ = {isa = PBXBuildFile; fileRef = 668047072451B43E00588685 /* NSCache+Safe.h */; };
-		668047302451B43E00588685 /* NSOrderedSet+Safe.h in Headers */ = {isa = PBXBuildFile; fileRef = 668047082451B43E00588685 /* NSOrderedSet+Safe.h */; };
-		668047312451B43E00588685 /* NSUserDefaults+Safe.m in Sources */ = {isa = PBXBuildFile; fileRef = 668047092451B43E00588685 /* NSUserDefaults+Safe.m */; };
-		668047322451B43E00588685 /* NSSet+Safe.h in Headers */ = {isa = PBXBuildFile; fileRef = 6680470A2451B43E00588685 /* NSSet+Safe.h */; };
-		668047332451B43E00588685 /* NSString+Safe.h in Headers */ = {isa = PBXBuildFile; fileRef = 6680470B2451B43E00588685 /* NSString+Safe.h */; };
-		668047342451B43E00588685 /* NSNotificationCenter+Safe.m in Sources */ = {isa = PBXBuildFile; fileRef = 6680470C2451B43E00588685 /* NSNotificationCenter+Safe.m */; };
-		668047352451B43E00588685 /* NSMutableArray+Safe.h in Headers */ = {isa = PBXBuildFile; fileRef = 6680470D2451B43E00588685 /* NSMutableArray+Safe.h */; };
-		668047362451B43E00588685 /* NSMutableString+Safe.m in Sources */ = {isa = PBXBuildFile; fileRef = 6680470E2451B43E00588685 /* NSMutableString+Safe.m */; };
-		668047372451B43E00588685 /* NSMutableDictionary+Safe.h in Headers */ = {isa = PBXBuildFile; fileRef = 6680470F2451B43E00588685 /* NSMutableDictionary+Safe.h */; };
-		668047382451B43E00588685 /* NSMutableAttributedString+Safe.h in Headers */ = {isa = PBXBuildFile; fileRef = 668047102451B43E00588685 /* NSMutableAttributedString+Safe.h */; };
-		668047392451B43E00588685 /* NSDictionary+Safe.m in Sources */ = {isa = PBXBuildFile; fileRef = 668047112451B43E00588685 /* NSDictionary+Safe.m */; };
-		6680473A2451B43E00588685 /* NSObject+KVOSafe.h in Headers */ = {isa = PBXBuildFile; fileRef = 668047122451B43E00588685 /* NSObject+KVOSafe.h */; };
-		6680473B2451B43E00588685 /* NSObject+SafeSwizzle.m in Sources */ = {isa = PBXBuildFile; fileRef = 668047132451B43E00588685 /* NSObject+SafeSwizzle.m */; };
-		6680473C2451B43E00588685 /* NSMutableSet+Safe.h in Headers */ = {isa = PBXBuildFile; fileRef = 668047142451B43E00588685 /* NSMutableSet+Safe.h */; };
-		6680473D2451B43E00588685 /* NSArray+Safe.m in Sources */ = {isa = PBXBuildFile; fileRef = 668047152451B43E00588685 /* NSArray+Safe.m */; };
-		6680473E2451B43E00588685 /* NSAttributedString+Safe.h in Headers */ = {isa = PBXBuildFile; fileRef = 668047162451B43E00588685 /* NSAttributedString+Safe.h */; };
-		6680473F2451B43E00588685 /* NSMutableData+Safe.m in Sources */ = {isa = PBXBuildFile; fileRef = 668047172451B43E00588685 /* NSMutableData+Safe.m */; };
-		668047402451B43E00588685 /* NSData+Safe.h in Headers */ = {isa = PBXBuildFile; fileRef = 668047182451B43E00588685 /* NSData+Safe.h */; };
+		667B469A24529367007D9A29 /* NSSet+Safe.m in Sources */ = {isa = PBXBuildFile; fileRef = 667B466F24529367007D9A29 /* NSSet+Safe.m */; };
+		667B469B24529367007D9A29 /* NSOrderedSet+Safe.m in Sources */ = {isa = PBXBuildFile; fileRef = 667B467024529367007D9A29 /* NSOrderedSet+Safe.m */; };
+		667B469C24529367007D9A29 /* NSUserDefaults+Safe.h in Headers */ = {isa = PBXBuildFile; fileRef = 667B467124529367007D9A29 /* NSUserDefaults+Safe.h */; };
+		667B469D24529367007D9A29 /* NSCache+Safe.m in Sources */ = {isa = PBXBuildFile; fileRef = 667B467224529367007D9A29 /* NSCache+Safe.m */; };
+		667B469E24529367007D9A29 /* NSMutableOrderedSet+Safe.h in Headers */ = {isa = PBXBuildFile; fileRef = 667B467324529367007D9A29 /* NSMutableOrderedSet+Safe.h */; };
+		667B469F24529367007D9A29 /* NSMutableString+Safe.h in Headers */ = {isa = PBXBuildFile; fileRef = 667B467424529367007D9A29 /* NSMutableString+Safe.h */; };
+		667B46A024529367007D9A29 /* NSMutableArray+Safe.m in Sources */ = {isa = PBXBuildFile; fileRef = 667B467524529367007D9A29 /* NSMutableArray+Safe.m */; };
+		667B46A124529367007D9A29 /* NSNotificationCenter+Safe.h in Headers */ = {isa = PBXBuildFile; fileRef = 667B467624529367007D9A29 /* NSNotificationCenter+Safe.h */; };
+		667B46A224529367007D9A29 /* NSString+Safe.m in Sources */ = {isa = PBXBuildFile; fileRef = 667B467724529367007D9A29 /* NSString+Safe.m */; };
+		667B46A324529367007D9A29 /* NSDictionary+Safe.h in Headers */ = {isa = PBXBuildFile; fileRef = 667B467824529367007D9A29 /* NSDictionary+Safe.h */; };
+		667B46A424529367007D9A29 /* NSMutableAttributedString+Safe.m in Sources */ = {isa = PBXBuildFile; fileRef = 667B467924529367007D9A29 /* NSMutableAttributedString+Safe.m */; };
+		667B46A524529367007D9A29 /* NSMutableDictionary+Safe.m in Sources */ = {isa = PBXBuildFile; fileRef = 667B467A24529367007D9A29 /* NSMutableDictionary+Safe.m */; };
+		667B46A624529367007D9A29 /* NSData+Safe.m in Sources */ = {isa = PBXBuildFile; fileRef = 667B467B24529367007D9A29 /* NSData+Safe.m */; };
+		667B46A724529367007D9A29 /* NSMutableData+Safe.h in Headers */ = {isa = PBXBuildFile; fileRef = 667B467C24529367007D9A29 /* NSMutableData+Safe.h */; };
+		667B46A824529367007D9A29 /* NSAttributedString+Safe.m in Sources */ = {isa = PBXBuildFile; fileRef = 667B467D24529367007D9A29 /* NSAttributedString+Safe.m */; };
+		667B46A924529367007D9A29 /* NSArray+Safe.h in Headers */ = {isa = PBXBuildFile; fileRef = 667B467E24529367007D9A29 /* NSArray+Safe.h */; };
+		667B46AA24529367007D9A29 /* NSMutableSet+Safe.m in Sources */ = {isa = PBXBuildFile; fileRef = 667B467F24529367007D9A29 /* NSMutableSet+Safe.m */; };
+		667B46AB24529367007D9A29 /* NSObject+KVOSafe.m in Sources */ = {isa = PBXBuildFile; fileRef = 667B468024529367007D9A29 /* NSObject+KVOSafe.m */; };
+		667B46AC24529367007D9A29 /* NSMutableOrderedSet+Safe.m in Sources */ = {isa = PBXBuildFile; fileRef = 667B468124529367007D9A29 /* NSMutableOrderedSet+Safe.m */; };
+		667B46AD24529367007D9A29 /* NSCache+Safe.h in Headers */ = {isa = PBXBuildFile; fileRef = 667B468224529367007D9A29 /* NSCache+Safe.h */; };
+		667B46AE24529367007D9A29 /* NSOrderedSet+Safe.h in Headers */ = {isa = PBXBuildFile; fileRef = 667B468324529367007D9A29 /* NSOrderedSet+Safe.h */; };
+		667B46AF24529367007D9A29 /* NSUserDefaults+Safe.m in Sources */ = {isa = PBXBuildFile; fileRef = 667B468424529367007D9A29 /* NSUserDefaults+Safe.m */; };
+		667B46B024529367007D9A29 /* NSSet+Safe.h in Headers */ = {isa = PBXBuildFile; fileRef = 667B468524529367007D9A29 /* NSSet+Safe.h */; };
+		667B46B124529367007D9A29 /* NSString+Safe.h in Headers */ = {isa = PBXBuildFile; fileRef = 667B468624529367007D9A29 /* NSString+Safe.h */; };
+		667B46B224529367007D9A29 /* NSNotificationCenter+Safe.m in Sources */ = {isa = PBXBuildFile; fileRef = 667B468724529367007D9A29 /* NSNotificationCenter+Safe.m */; };
+		667B46B324529367007D9A29 /* NSMutableArray+Safe.h in Headers */ = {isa = PBXBuildFile; fileRef = 667B468824529367007D9A29 /* NSMutableArray+Safe.h */; };
+		667B46B424529367007D9A29 /* NSMutableString+Safe.m in Sources */ = {isa = PBXBuildFile; fileRef = 667B468924529367007D9A29 /* NSMutableString+Safe.m */; };
+		667B46B524529367007D9A29 /* NSMutableDictionary+Safe.h in Headers */ = {isa = PBXBuildFile; fileRef = 667B468A24529367007D9A29 /* NSMutableDictionary+Safe.h */; };
+		667B46B624529367007D9A29 /* NSMutableAttributedString+Safe.h in Headers */ = {isa = PBXBuildFile; fileRef = 667B468B24529367007D9A29 /* NSMutableAttributedString+Safe.h */; };
+		667B46B724529367007D9A29 /* NSDictionary+Safe.m in Sources */ = {isa = PBXBuildFile; fileRef = 667B468C24529367007D9A29 /* NSDictionary+Safe.m */; };
+		667B46B824529367007D9A29 /* NSObject+KVOSafe.h in Headers */ = {isa = PBXBuildFile; fileRef = 667B468D24529367007D9A29 /* NSObject+KVOSafe.h */; };
+		667B46B924529367007D9A29 /* NSMutableSet+Safe.h in Headers */ = {isa = PBXBuildFile; fileRef = 667B468E24529367007D9A29 /* NSMutableSet+Safe.h */; };
+		667B46BA24529367007D9A29 /* NSArray+Safe.m in Sources */ = {isa = PBXBuildFile; fileRef = 667B468F24529367007D9A29 /* NSArray+Safe.m */; };
+		667B46BB24529367007D9A29 /* NSAttributedString+Safe.h in Headers */ = {isa = PBXBuildFile; fileRef = 667B469024529367007D9A29 /* NSAttributedString+Safe.h */; };
+		667B46BC24529367007D9A29 /* NSMutableData+Safe.m in Sources */ = {isa = PBXBuildFile; fileRef = 667B469124529367007D9A29 /* NSMutableData+Safe.m */; };
+		667B46BD24529367007D9A29 /* NSData+Safe.h in Headers */ = {isa = PBXBuildFile; fileRef = 667B469224529367007D9A29 /* NSData+Safe.h */; };
+		667B46BE24529367007D9A29 /* NSMutableArray+MRCSafe.m in Sources */ = {isa = PBXBuildFile; fileRef = 667B469424529367007D9A29 /* NSMutableArray+MRCSafe.m */; };
+		667B46BF24529367007D9A29 /* NSMutableArray+MRCSafe.h in Headers */ = {isa = PBXBuildFile; fileRef = 667B469524529367007D9A29 /* NSMutableArray+MRCSafe.h */; };
+		667B46C024529367007D9A29 /* LSSafeProtector.m in Sources */ = {isa = PBXBuildFile; fileRef = 667B469724529367007D9A29 /* LSSafeProtector.m */; };
+		667B46C124529367007D9A29 /* LSSafeProtector.h in Headers */ = {isa = PBXBuildFile; fileRef = 667B469824529367007D9A29 /* LSSafeProtector.h */; };
+		667B46C224529367007D9A29 /* LSSafeProtectorDefine.h in Headers */ = {isa = PBXBuildFile; fileRef = 667B469924529367007D9A29 /* LSSafeProtectorDefine.h */; };
 		68598A77E490F86B282FDDD471A81AC5 /* XYHelpKit-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 716F069CAA16AB9D58C230DF1525C926 /* XYHelpKit-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6AE239C5D116E1C06F5705699FB9EAF0 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E601BD54DA9BF4071437E60125281FA /* XCTest.framework */; };
 		6DBC8EB7532E931C2FBDA71D1E0B66A4 /* FBSnapshotTestCase-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A83AE4362CF1D4764E00E4602A2D648 /* FBSnapshotTestCase-dummy.m */; };
@@ -127,54 +124,51 @@
 		486BCFBE3EAF3DE9D8CD5465F7689E1D /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		4CB61E8C95260897ACBA26ABC7423AD0 /* XYHelpKit-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "XYHelpKit-dummy.m"; sourceTree = "<group>"; };
 		53E9C9AE86B613B8C8DD67FFA84C9AE7 /* Pods-XYHelpKit_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-XYHelpKit_Example-acknowledgements.plist"; sourceTree = "<group>"; };
-		5B1D73C6311CA2F21D80408CFD2F2AB6 /* ReplaceMe.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ReplaceMe.m; path = XYHelpKit/Classes/ReplaceMe.m; sourceTree = "<group>"; };
 		5B6288FDA5A01F56B6B657CB6A70260B /* Pods_XYHelpKit_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_XYHelpKit_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C4F31330DFA99D699E4BDC8C3573D73 /* FBSnapshotTestCase.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FBSnapshotTestCase.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5E601BD54DA9BF4071437E60125281FA /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		63D94E052B9655EDEC48F176D4FF24FC /* Pods-XYHelpKit_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-XYHelpKit_Example.debug.xcconfig"; sourceTree = "<group>"; };
-		668046EA2451B42C00588685 /* XYYSafeProtector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYYSafeProtector.m; sourceTree = "<group>"; };
-		668046EB2451B42C00588685 /* XYYSafeProtectorDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYYSafeProtectorDefine.h; sourceTree = "<group>"; };
-		668046EC2451B42C00588685 /* XYYSafeProtector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYYSafeProtector.h; sourceTree = "<group>"; };
-		668046F12451B43E00588685 /* NSSet+Safe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSSet+Safe.m"; sourceTree = "<group>"; };
-		668046F22451B43E00588685 /* NSOrderedSet+Safe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSOrderedSet+Safe.m"; sourceTree = "<group>"; };
-		668046F32451B43E00588685 /* NSUserDefaults+Safe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSUserDefaults+Safe.h"; sourceTree = "<group>"; };
-		668046F42451B43E00588685 /* NSCache+Safe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSCache+Safe.m"; sourceTree = "<group>"; };
-		668046F52451B43E00588685 /* NSObject+Safe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Safe.m"; sourceTree = "<group>"; };
-		668046F62451B43E00588685 /* NSMutableOrderedSet+Safe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableOrderedSet+Safe.h"; sourceTree = "<group>"; };
-		668046F72451B43E00588685 /* NSMutableString+Safe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableString+Safe.h"; sourceTree = "<group>"; };
-		668046F82451B43E00588685 /* NSMutableArray+Safe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+Safe.m"; sourceTree = "<group>"; };
-		668046F92451B43E00588685 /* NSNotificationCenter+Safe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSNotificationCenter+Safe.h"; sourceTree = "<group>"; };
-		668046FA2451B43E00588685 /* NSString+Safe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Safe.m"; sourceTree = "<group>"; };
-		668046FB2451B43E00588685 /* NSDictionary+Safe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+Safe.h"; sourceTree = "<group>"; };
-		668046FC2451B43E00588685 /* NSMutableAttributedString+Safe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableAttributedString+Safe.m"; sourceTree = "<group>"; };
-		668046FD2451B43E00588685 /* NSMutableDictionary+Safe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableDictionary+Safe.m"; sourceTree = "<group>"; };
-		668046FE2451B43E00588685 /* NSData+Safe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+Safe.m"; sourceTree = "<group>"; };
-		668046FF2451B43E00588685 /* NSMutableData+Safe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableData+Safe.h"; sourceTree = "<group>"; };
-		668047002451B43E00588685 /* NSAttributedString+Safe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSAttributedString+Safe.m"; sourceTree = "<group>"; };
-		668047012451B43E00588685 /* NSArray+Safe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+Safe.h"; sourceTree = "<group>"; };
-		668047022451B43E00588685 /* NSMutableSet+Safe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableSet+Safe.m"; sourceTree = "<group>"; };
-		668047032451B43E00588685 /* NSObject+SafeSwizzle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+SafeSwizzle.h"; sourceTree = "<group>"; };
-		668047042451B43E00588685 /* NSObject+KVOSafe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+KVOSafe.m"; sourceTree = "<group>"; };
-		668047052451B43E00588685 /* NSMutableOrderedSet+Safe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableOrderedSet+Safe.m"; sourceTree = "<group>"; };
-		668047062451B43E00588685 /* NSObject+Safe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+Safe.h"; sourceTree = "<group>"; };
-		668047072451B43E00588685 /* NSCache+Safe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSCache+Safe.h"; sourceTree = "<group>"; };
-		668047082451B43E00588685 /* NSOrderedSet+Safe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSOrderedSet+Safe.h"; sourceTree = "<group>"; };
-		668047092451B43E00588685 /* NSUserDefaults+Safe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSUserDefaults+Safe.m"; sourceTree = "<group>"; };
-		6680470A2451B43E00588685 /* NSSet+Safe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSSet+Safe.h"; sourceTree = "<group>"; };
-		6680470B2451B43E00588685 /* NSString+Safe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Safe.h"; sourceTree = "<group>"; };
-		6680470C2451B43E00588685 /* NSNotificationCenter+Safe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSNotificationCenter+Safe.m"; sourceTree = "<group>"; };
-		6680470D2451B43E00588685 /* NSMutableArray+Safe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+Safe.h"; sourceTree = "<group>"; };
-		6680470E2451B43E00588685 /* NSMutableString+Safe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableString+Safe.m"; sourceTree = "<group>"; };
-		6680470F2451B43E00588685 /* NSMutableDictionary+Safe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableDictionary+Safe.h"; sourceTree = "<group>"; };
-		668047102451B43E00588685 /* NSMutableAttributedString+Safe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableAttributedString+Safe.h"; sourceTree = "<group>"; };
-		668047112451B43E00588685 /* NSDictionary+Safe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+Safe.m"; sourceTree = "<group>"; };
-		668047122451B43E00588685 /* NSObject+KVOSafe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+KVOSafe.h"; sourceTree = "<group>"; };
-		668047132451B43E00588685 /* NSObject+SafeSwizzle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+SafeSwizzle.m"; sourceTree = "<group>"; };
-		668047142451B43E00588685 /* NSMutableSet+Safe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableSet+Safe.h"; sourceTree = "<group>"; };
-		668047152451B43E00588685 /* NSArray+Safe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+Safe.m"; sourceTree = "<group>"; };
-		668047162451B43E00588685 /* NSAttributedString+Safe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSAttributedString+Safe.h"; sourceTree = "<group>"; };
-		668047172451B43E00588685 /* NSMutableData+Safe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableData+Safe.m"; sourceTree = "<group>"; };
-		668047182451B43E00588685 /* NSData+Safe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+Safe.h"; sourceTree = "<group>"; };
+		667B466F24529367007D9A29 /* NSSet+Safe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSSet+Safe.m"; sourceTree = "<group>"; };
+		667B467024529367007D9A29 /* NSOrderedSet+Safe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSOrderedSet+Safe.m"; sourceTree = "<group>"; };
+		667B467124529367007D9A29 /* NSUserDefaults+Safe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSUserDefaults+Safe.h"; sourceTree = "<group>"; };
+		667B467224529367007D9A29 /* NSCache+Safe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSCache+Safe.m"; sourceTree = "<group>"; };
+		667B467324529367007D9A29 /* NSMutableOrderedSet+Safe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableOrderedSet+Safe.h"; sourceTree = "<group>"; };
+		667B467424529367007D9A29 /* NSMutableString+Safe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableString+Safe.h"; sourceTree = "<group>"; };
+		667B467524529367007D9A29 /* NSMutableArray+Safe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+Safe.m"; sourceTree = "<group>"; };
+		667B467624529367007D9A29 /* NSNotificationCenter+Safe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSNotificationCenter+Safe.h"; sourceTree = "<group>"; };
+		667B467724529367007D9A29 /* NSString+Safe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Safe.m"; sourceTree = "<group>"; };
+		667B467824529367007D9A29 /* NSDictionary+Safe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+Safe.h"; sourceTree = "<group>"; };
+		667B467924529367007D9A29 /* NSMutableAttributedString+Safe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableAttributedString+Safe.m"; sourceTree = "<group>"; };
+		667B467A24529367007D9A29 /* NSMutableDictionary+Safe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableDictionary+Safe.m"; sourceTree = "<group>"; };
+		667B467B24529367007D9A29 /* NSData+Safe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+Safe.m"; sourceTree = "<group>"; };
+		667B467C24529367007D9A29 /* NSMutableData+Safe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableData+Safe.h"; sourceTree = "<group>"; };
+		667B467D24529367007D9A29 /* NSAttributedString+Safe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSAttributedString+Safe.m"; sourceTree = "<group>"; };
+		667B467E24529367007D9A29 /* NSArray+Safe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+Safe.h"; sourceTree = "<group>"; };
+		667B467F24529367007D9A29 /* NSMutableSet+Safe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableSet+Safe.m"; sourceTree = "<group>"; };
+		667B468024529367007D9A29 /* NSObject+KVOSafe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+KVOSafe.m"; sourceTree = "<group>"; };
+		667B468124529367007D9A29 /* NSMutableOrderedSet+Safe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableOrderedSet+Safe.m"; sourceTree = "<group>"; };
+		667B468224529367007D9A29 /* NSCache+Safe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSCache+Safe.h"; sourceTree = "<group>"; };
+		667B468324529367007D9A29 /* NSOrderedSet+Safe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSOrderedSet+Safe.h"; sourceTree = "<group>"; };
+		667B468424529367007D9A29 /* NSUserDefaults+Safe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSUserDefaults+Safe.m"; sourceTree = "<group>"; };
+		667B468524529367007D9A29 /* NSSet+Safe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSSet+Safe.h"; sourceTree = "<group>"; };
+		667B468624529367007D9A29 /* NSString+Safe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Safe.h"; sourceTree = "<group>"; };
+		667B468724529367007D9A29 /* NSNotificationCenter+Safe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSNotificationCenter+Safe.m"; sourceTree = "<group>"; };
+		667B468824529367007D9A29 /* NSMutableArray+Safe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+Safe.h"; sourceTree = "<group>"; };
+		667B468924529367007D9A29 /* NSMutableString+Safe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableString+Safe.m"; sourceTree = "<group>"; };
+		667B468A24529367007D9A29 /* NSMutableDictionary+Safe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableDictionary+Safe.h"; sourceTree = "<group>"; };
+		667B468B24529367007D9A29 /* NSMutableAttributedString+Safe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableAttributedString+Safe.h"; sourceTree = "<group>"; };
+		667B468C24529367007D9A29 /* NSDictionary+Safe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+Safe.m"; sourceTree = "<group>"; };
+		667B468D24529367007D9A29 /* NSObject+KVOSafe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+KVOSafe.h"; sourceTree = "<group>"; };
+		667B468E24529367007D9A29 /* NSMutableSet+Safe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableSet+Safe.h"; sourceTree = "<group>"; };
+		667B468F24529367007D9A29 /* NSArray+Safe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+Safe.m"; sourceTree = "<group>"; };
+		667B469024529367007D9A29 /* NSAttributedString+Safe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSAttributedString+Safe.h"; sourceTree = "<group>"; };
+		667B469124529367007D9A29 /* NSMutableData+Safe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableData+Safe.m"; sourceTree = "<group>"; };
+		667B469224529367007D9A29 /* NSData+Safe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+Safe.h"; sourceTree = "<group>"; };
+		667B469424529367007D9A29 /* NSMutableArray+MRCSafe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+MRCSafe.m"; sourceTree = "<group>"; };
+		667B469524529367007D9A29 /* NSMutableArray+MRCSafe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+MRCSafe.h"; sourceTree = "<group>"; };
+		667B469724529367007D9A29 /* LSSafeProtector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSSafeProtector.m; sourceTree = "<group>"; };
+		667B469824529367007D9A29 /* LSSafeProtector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSSafeProtector.h; sourceTree = "<group>"; };
+		667B469924529367007D9A29 /* LSSafeProtectorDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSSafeProtectorDefine.h; sourceTree = "<group>"; };
 		716A9972B9D9103B54DB950893FAF104 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/QuartzCore.framework; sourceTree = DEVELOPER_DIR; };
 		716F069CAA16AB9D58C230DF1525C926 /* XYHelpKit-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "XYHelpKit-umbrella.h"; sourceTree = "<group>"; };
 		746CC9C9E1B0E104CD1BA120C69A2526 /* FBSnapshotTestCase-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "FBSnapshotTestCase-prefix.pch"; sourceTree = "<group>"; };
@@ -299,63 +293,69 @@
 			name = "Development Pods";
 			sourceTree = "<group>";
 		};
-		668046E92451B42C00588685 /* Core */ = {
+		667B466E24529367007D9A29 /* Foundation */ = {
 			isa = PBXGroup;
 			children = (
-				668046EC2451B42C00588685 /* XYYSafeProtector.h */,
-				668046EA2451B42C00588685 /* XYYSafeProtector.m */,
-				668046EB2451B42C00588685 /* XYYSafeProtectorDefine.h */,
-			);
-			name = Core;
-			path = XYHelpKit/Core;
-			sourceTree = "<group>";
-		};
-		668046F02451B43E00588685 /* Foundation */ = {
-			isa = PBXGroup;
-			children = (
-				668046F12451B43E00588685 /* NSSet+Safe.m */,
-				668046F22451B43E00588685 /* NSOrderedSet+Safe.m */,
-				668046F32451B43E00588685 /* NSUserDefaults+Safe.h */,
-				668046F42451B43E00588685 /* NSCache+Safe.m */,
-				668046F52451B43E00588685 /* NSObject+Safe.m */,
-				668046F62451B43E00588685 /* NSMutableOrderedSet+Safe.h */,
-				668046F72451B43E00588685 /* NSMutableString+Safe.h */,
-				668046F82451B43E00588685 /* NSMutableArray+Safe.m */,
-				668046F92451B43E00588685 /* NSNotificationCenter+Safe.h */,
-				668046FA2451B43E00588685 /* NSString+Safe.m */,
-				668046FB2451B43E00588685 /* NSDictionary+Safe.h */,
-				668046FC2451B43E00588685 /* NSMutableAttributedString+Safe.m */,
-				668046FD2451B43E00588685 /* NSMutableDictionary+Safe.m */,
-				668046FE2451B43E00588685 /* NSData+Safe.m */,
-				668046FF2451B43E00588685 /* NSMutableData+Safe.h */,
-				668047002451B43E00588685 /* NSAttributedString+Safe.m */,
-				668047012451B43E00588685 /* NSArray+Safe.h */,
-				668047022451B43E00588685 /* NSMutableSet+Safe.m */,
-				668047032451B43E00588685 /* NSObject+SafeSwizzle.h */,
-				668047042451B43E00588685 /* NSObject+KVOSafe.m */,
-				668047052451B43E00588685 /* NSMutableOrderedSet+Safe.m */,
-				668047062451B43E00588685 /* NSObject+Safe.h */,
-				668047072451B43E00588685 /* NSCache+Safe.h */,
-				668047082451B43E00588685 /* NSOrderedSet+Safe.h */,
-				668047092451B43E00588685 /* NSUserDefaults+Safe.m */,
-				6680470A2451B43E00588685 /* NSSet+Safe.h */,
-				6680470B2451B43E00588685 /* NSString+Safe.h */,
-				6680470C2451B43E00588685 /* NSNotificationCenter+Safe.m */,
-				6680470D2451B43E00588685 /* NSMutableArray+Safe.h */,
-				6680470E2451B43E00588685 /* NSMutableString+Safe.m */,
-				6680470F2451B43E00588685 /* NSMutableDictionary+Safe.h */,
-				668047102451B43E00588685 /* NSMutableAttributedString+Safe.h */,
-				668047112451B43E00588685 /* NSDictionary+Safe.m */,
-				668047122451B43E00588685 /* NSObject+KVOSafe.h */,
-				668047132451B43E00588685 /* NSObject+SafeSwizzle.m */,
-				668047142451B43E00588685 /* NSMutableSet+Safe.h */,
-				668047152451B43E00588685 /* NSArray+Safe.m */,
-				668047162451B43E00588685 /* NSAttributedString+Safe.h */,
-				668047172451B43E00588685 /* NSMutableData+Safe.m */,
-				668047182451B43E00588685 /* NSData+Safe.h */,
+				667B466F24529367007D9A29 /* NSSet+Safe.m */,
+				667B467024529367007D9A29 /* NSOrderedSet+Safe.m */,
+				667B467124529367007D9A29 /* NSUserDefaults+Safe.h */,
+				667B467224529367007D9A29 /* NSCache+Safe.m */,
+				667B467324529367007D9A29 /* NSMutableOrderedSet+Safe.h */,
+				667B467424529367007D9A29 /* NSMutableString+Safe.h */,
+				667B467524529367007D9A29 /* NSMutableArray+Safe.m */,
+				667B467624529367007D9A29 /* NSNotificationCenter+Safe.h */,
+				667B467724529367007D9A29 /* NSString+Safe.m */,
+				667B467824529367007D9A29 /* NSDictionary+Safe.h */,
+				667B467924529367007D9A29 /* NSMutableAttributedString+Safe.m */,
+				667B467A24529367007D9A29 /* NSMutableDictionary+Safe.m */,
+				667B467B24529367007D9A29 /* NSData+Safe.m */,
+				667B467C24529367007D9A29 /* NSMutableData+Safe.h */,
+				667B467D24529367007D9A29 /* NSAttributedString+Safe.m */,
+				667B467E24529367007D9A29 /* NSArray+Safe.h */,
+				667B467F24529367007D9A29 /* NSMutableSet+Safe.m */,
+				667B468024529367007D9A29 /* NSObject+KVOSafe.m */,
+				667B468124529367007D9A29 /* NSMutableOrderedSet+Safe.m */,
+				667B468224529367007D9A29 /* NSCache+Safe.h */,
+				667B468324529367007D9A29 /* NSOrderedSet+Safe.h */,
+				667B468424529367007D9A29 /* NSUserDefaults+Safe.m */,
+				667B468524529367007D9A29 /* NSSet+Safe.h */,
+				667B468624529367007D9A29 /* NSString+Safe.h */,
+				667B468724529367007D9A29 /* NSNotificationCenter+Safe.m */,
+				667B468824529367007D9A29 /* NSMutableArray+Safe.h */,
+				667B468924529367007D9A29 /* NSMutableString+Safe.m */,
+				667B468A24529367007D9A29 /* NSMutableDictionary+Safe.h */,
+				667B468B24529367007D9A29 /* NSMutableAttributedString+Safe.h */,
+				667B468C24529367007D9A29 /* NSDictionary+Safe.m */,
+				667B468D24529367007D9A29 /* NSObject+KVOSafe.h */,
+				667B468E24529367007D9A29 /* NSMutableSet+Safe.h */,
+				667B468F24529367007D9A29 /* NSArray+Safe.m */,
+				667B469024529367007D9A29 /* NSAttributedString+Safe.h */,
+				667B469124529367007D9A29 /* NSMutableData+Safe.m */,
+				667B469224529367007D9A29 /* NSData+Safe.h */,
 			);
 			name = Foundation;
 			path = XYHelpKit/Foundation;
+			sourceTree = "<group>";
+		};
+		667B469324529367007D9A29 /* MRC */ = {
+			isa = PBXGroup;
+			children = (
+				667B469424529367007D9A29 /* NSMutableArray+MRCSafe.m */,
+				667B469524529367007D9A29 /* NSMutableArray+MRCSafe.h */,
+			);
+			name = MRC;
+			path = XYHelpKit/MRC;
+			sourceTree = "<group>";
+		};
+		667B469624529367007D9A29 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				667B469724529367007D9A29 /* LSSafeProtector.m */,
+				667B469824529367007D9A29 /* LSSafeProtector.h */,
+				667B469924529367007D9A29 /* LSSafeProtectorDefine.h */,
+			);
+			name = Core;
+			path = XYHelpKit/Core;
 			sourceTree = "<group>";
 		};
 		7AE78974F737764440518FD5A89BE729 /* Targets Support Files */ = {
@@ -381,9 +381,9 @@
 		7FF41ABF2FCAC2B6455EB4EE93BF4C0C /* XYHelpKit */ = {
 			isa = PBXGroup;
 			children = (
-				668046F02451B43E00588685 /* Foundation */,
-				668046E92451B42C00588685 /* Core */,
-				5B1D73C6311CA2F21D80408CFD2F2AB6 /* ReplaceMe.m */,
+				667B469624529367007D9A29 /* Core */,
+				667B466E24529367007D9A29 /* Foundation */,
+				667B469324529367007D9A29 /* MRC */,
 				13867FC81036D5863160B888AD495C4F /* Pod */,
 				EA766DD4FB7D11174814D0A943F73AAD /* Support Files */,
 			);
@@ -515,36 +515,35 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				667B46C224529367007D9A29 /* LSSafeProtectorDefine.h in Headers */,
+				667B46A124529367007D9A29 /* NSNotificationCenter+Safe.h in Headers */,
+				667B46B124529367007D9A29 /* NSString+Safe.h in Headers */,
+				667B46BB24529367007D9A29 /* NSAttributedString+Safe.h in Headers */,
+				667B46A924529367007D9A29 /* NSArray+Safe.h in Headers */,
+				667B46B324529367007D9A29 /* NSMutableArray+Safe.h in Headers */,
 				F720FAF13A108CE6901E0A8B0580E1E8 /* FBSnapshotTestCase-umbrella.h in Headers */,
-				668046EF2451B42C00588685 /* XYYSafeProtector.h in Headers */,
-				668047332451B43E00588685 /* NSString+Safe.h in Headers */,
-				6680472E2451B43E00588685 /* NSObject+Safe.h in Headers */,
-				6680473A2451B43E00588685 /* NSObject+KVOSafe.h in Headers */,
-				668047382451B43E00588685 /* NSMutableAttributedString+Safe.h in Headers */,
-				6680473C2451B43E00588685 /* NSMutableSet+Safe.h in Headers */,
-				6680472F2451B43E00588685 /* NSCache+Safe.h in Headers */,
-				6680471F2451B43E00588685 /* NSMutableString+Safe.h in Headers */,
-				668046EE2451B42C00588685 /* XYYSafeProtectorDefine.h in Headers */,
-				6680472B2451B43E00588685 /* NSObject+SafeSwizzle.h in Headers */,
-				668047212451B43E00588685 /* NSNotificationCenter+Safe.h in Headers */,
+				667B46BD24529367007D9A29 /* NSData+Safe.h in Headers */,
+				667B46AD24529367007D9A29 /* NSCache+Safe.h in Headers */,
+				667B469C24529367007D9A29 /* NSUserDefaults+Safe.h in Headers */,
 				00224C929D57F45B70E87359E719948D /* FBSnapshotTestCase.h in Headers */,
 				C49D52712466511E332C952834C81FE1 /* FBSnapshotTestCasePlatform.h in Headers */,
+				667B46BF24529367007D9A29 /* NSMutableArray+MRCSafe.h in Headers */,
 				90142C6259374E18E640396A59AD379A /* FBSnapshotTestController.h in Headers */,
-				668047232451B43E00588685 /* NSDictionary+Safe.h in Headers */,
-				668047402451B43E00588685 /* NSData+Safe.h in Headers */,
-				668047272451B43E00588685 /* NSMutableData+Safe.h in Headers */,
-				6680471E2451B43E00588685 /* NSMutableOrderedSet+Safe.h in Headers */,
-				668047292451B43E00588685 /* NSArray+Safe.h in Headers */,
-				668047302451B43E00588685 /* NSOrderedSet+Safe.h in Headers */,
+				667B46B924529367007D9A29 /* NSMutableSet+Safe.h in Headers */,
 				40039E0AF0D764360B1D4FC4F7950D2E /* UIApplication+StrictKeyWindow.h in Headers */,
-				6680473E2451B43E00588685 /* NSAttributedString+Safe.h in Headers */,
-				6680471B2451B43E00588685 /* NSUserDefaults+Safe.h in Headers */,
-				668047372451B43E00588685 /* NSMutableDictionary+Safe.h in Headers */,
+				667B46A724529367007D9A29 /* NSMutableData+Safe.h in Headers */,
+				667B46B824529367007D9A29 /* NSObject+KVOSafe.h in Headers */,
+				667B46B624529367007D9A29 /* NSMutableAttributedString+Safe.h in Headers */,
+				667B469F24529367007D9A29 /* NSMutableString+Safe.h in Headers */,
+				667B46A324529367007D9A29 /* NSDictionary+Safe.h in Headers */,
+				667B46AE24529367007D9A29 /* NSOrderedSet+Safe.h in Headers */,
 				F1AAAE00BB32B733B238E2B4E8424506 /* UIImage+Compare.h in Headers */,
 				D04AAC8B22E4A4DC4F39891C4E52F251 /* UIImage+Diff.h in Headers */,
+				667B469E24529367007D9A29 /* NSMutableOrderedSet+Safe.h in Headers */,
 				B74CD6E6EBEA0B642776BCB37850415D /* UIImage+Snapshot.h in Headers */,
-				668047322451B43E00588685 /* NSSet+Safe.h in Headers */,
-				668047352451B43E00588685 /* NSMutableArray+Safe.h in Headers */,
+				667B46B024529367007D9A29 /* NSSet+Safe.h in Headers */,
+				667B46B524529367007D9A29 /* NSMutableDictionary+Safe.h in Headers */,
+				667B46C124529367007D9A29 /* LSSafeProtector.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -716,7 +715,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				169A6D2D8666566DDCEF6A31CFF0D4AA /* ReplaceMe.m in Sources */,
 				10B74662FE47BA389487D767D0540336 /* XYHelpKit-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -733,36 +731,35 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				668047252451B43E00588685 /* NSMutableDictionary+Safe.m in Sources */,
+				667B46AF24529367007D9A29 /* NSUserDefaults+Safe.m in Sources */,
+				667B46A524529367007D9A29 /* NSMutableDictionary+Safe.m in Sources */,
+				667B469D24529367007D9A29 /* NSCache+Safe.m in Sources */,
 				6DBC8EB7532E931C2FBDA71D1E0B66A4 /* FBSnapshotTestCase-dummy.m in Sources */,
-				668047282451B43E00588685 /* NSAttributedString+Safe.m in Sources */,
-				6680473B2451B43E00588685 /* NSObject+SafeSwizzle.m in Sources */,
-				6680471C2451B43E00588685 /* NSCache+Safe.m in Sources */,
-				6680471D2451B43E00588685 /* NSObject+Safe.m in Sources */,
-				668047362451B43E00588685 /* NSMutableString+Safe.m in Sources */,
 				8CE3BF0ACE07EA42DD5DAC871BF4B767 /* FBSnapshotTestCase.m in Sources */,
-				668047192451B43E00588685 /* NSSet+Safe.m in Sources */,
-				6680472A2451B43E00588685 /* NSMutableSet+Safe.m in Sources */,
-				668047342451B43E00588685 /* NSNotificationCenter+Safe.m in Sources */,
+				667B46BA24529367007D9A29 /* NSArray+Safe.m in Sources */,
+				667B46B424529367007D9A29 /* NSMutableString+Safe.m in Sources */,
+				667B46BC24529367007D9A29 /* NSMutableData+Safe.m in Sources */,
+				667B469B24529367007D9A29 /* NSOrderedSet+Safe.m in Sources */,
+				667B46A024529367007D9A29 /* NSMutableArray+Safe.m in Sources */,
+				667B46B724529367007D9A29 /* NSDictionary+Safe.m in Sources */,
+				667B46A824529367007D9A29 /* NSAttributedString+Safe.m in Sources */,
+				667B46AB24529367007D9A29 /* NSObject+KVOSafe.m in Sources */,
+				667B469A24529367007D9A29 /* NSSet+Safe.m in Sources */,
 				E8AC509D18EBF21B1FEA909652A01108 /* FBSnapshotTestCasePlatform.m in Sources */,
+				667B46AC24529367007D9A29 /* NSMutableOrderedSet+Safe.m in Sources */,
 				88396E68DC05A379282F3B374F75F43C /* FBSnapshotTestController.m in Sources */,
-				668047312451B43E00588685 /* NSUserDefaults+Safe.m in Sources */,
-				668047242451B43E00588685 /* NSMutableAttributedString+Safe.m in Sources */,
-				6680472C2451B43E00588685 /* NSObject+KVOSafe.m in Sources */,
 				9D65089019D558E5A9661F2DCAD20313 /* SwiftSupport.swift in Sources */,
-				668047202451B43E00588685 /* NSMutableArray+Safe.m in Sources */,
-				6680471A2451B43E00588685 /* NSOrderedSet+Safe.m in Sources */,
-				6680472D2451B43E00588685 /* NSMutableOrderedSet+Safe.m in Sources */,
+				667B46A624529367007D9A29 /* NSData+Safe.m in Sources */,
 				11C410135C7E89353B480AC8DE0BFB77 /* UIApplication+StrictKeyWindow.m in Sources */,
-				668046ED2451B42C00588685 /* XYYSafeProtector.m in Sources */,
-				668047222451B43E00588685 /* NSString+Safe.m in Sources */,
-				668047262451B43E00588685 /* NSData+Safe.m in Sources */,
-				6680473D2451B43E00588685 /* NSArray+Safe.m in Sources */,
-				668047392451B43E00588685 /* NSDictionary+Safe.m in Sources */,
 				2DCFF0CE0BD295F1D46D3247F36B192C /* UIImage+Compare.m in Sources */,
 				14AD81D52FAD9CF2C065C61FB00C3B4F /* UIImage+Diff.m in Sources */,
-				6680473F2451B43E00588685 /* NSMutableData+Safe.m in Sources */,
+				667B46A224529367007D9A29 /* NSString+Safe.m in Sources */,
+				667B46C024529367007D9A29 /* LSSafeProtector.m in Sources */,
+				667B46B224529367007D9A29 /* NSNotificationCenter+Safe.m in Sources */,
+				667B46A424529367007D9A29 /* NSMutableAttributedString+Safe.m in Sources */,
+				667B46BE24529367007D9A29 /* NSMutableArray+MRCSafe.m in Sources */,
 				A525E29E0A8079B35B793D8A2B5FBDF2 /* UIImage+Snapshot.m in Sources */,
+				667B46AA24529367007D9A29 /* NSMutableSet+Safe.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
