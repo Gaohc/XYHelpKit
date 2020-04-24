@@ -1,14 +1,21 @@
 //
 //  NSString+Safe.h
-// https://github.com/lsmakethebest/LSSafeProtector
+//  FBSnapshotTestCase
 //
-//  Created by liusong on 2018/4/20.
-//  Copyright © 2018年 liusong. All rights reserved.
+//  Created by 高洪成 on 2020/4/23.
+//
+
+
 
 #import <Foundation/Foundation.h>
 
+NS_ASSUME_NONNULL_BEGIN
+
 @interface NSString (Safe)
+
 @end
+
+NS_ASSUME_NONNULL_END
 
 /*
 initWithString导致的crash
@@ -20,7 +27,7 @@ initWithString导致的crash
  [[NSMutableString alloc]initWithString:@"fs"];
  [NSString stringWithFormat:]大于7字节
  
- __NSCFConstantString  
+ __NSCFConstantString
  @"fdsfsds"
  [[NSString alloc]initWithString:@"fs"];
  

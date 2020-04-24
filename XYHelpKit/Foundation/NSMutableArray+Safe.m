@@ -1,17 +1,18 @@
 //
 //  NSMutableArray+Safe.m
-// https://github.com/lsmakethebest/LSSafeProtector
+//  XYHelpKit_Example
 //
-//  Created by liusong on 2018/4/20.
-//  Copyright © 2018年 liusong. All rights reserved.
+//  Created by 高洪成 on 2020/4/23.
+//  Copyright © 2020 gaohongcheng. All rights reserved.
+//
 
 #import "NSMutableArray+Safe.h"
+
 #import "NSObject+SafeSwizzle.h"
-#import "LSSafeProtector.h"
+#import "XYYSafeProtector.h"
 
 
 @implementation NSMutableArray (Safe)
-
 +(void)openSafeProtector
 {
     static dispatch_once_t onceToken;
@@ -61,7 +62,7 @@
         object =  [self safe_objectAtIndexedSubscriptCFArray:index];
     }
     @catch (NSException *exception) {
-        LSSafeProtectionCrashLog(exception,LSSafeProtectorCrashTypeNSMutableArray);
+        XYYSafeProtectionCrashLog(exception,XYYSafeProtectorCrashTypeNSMutableArray);
     }
     @finally {
         return object;
@@ -73,7 +74,7 @@
         [self safe_insertObjectCFArray:anObject atIndex:index];
     }
     @catch (NSException *exception) {
-        LSSafeProtectionCrashLog(exception,LSSafeProtectorCrashTypeNSMutableArray);
+        XYYSafeProtectionCrashLog(exception,XYYSafeProtectorCrashTypeNSMutableArray);
     }
     @finally {
         
@@ -85,7 +86,7 @@
         [self safe_removeObjectAtIndexCFArray:index];
     }
     @catch (NSException *exception) {
-        LSSafeProtectionCrashLog(exception,LSSafeProtectorCrashTypeNSMutableArray);
+        XYYSafeProtectionCrashLog(exception,XYYSafeProtectorCrashTypeNSMutableArray);
     }
     @finally {
         
@@ -98,7 +99,7 @@
         [self safe_removeObjectsInRangeCFArray:range];
     }
     @catch (NSException *exception) {
-        LSSafeProtectionCrashLog(exception,LSSafeProtectorCrashTypeNSMutableArray);
+        XYYSafeProtectionCrashLog(exception,XYYSafeProtectorCrashTypeNSMutableArray);
     }
     @finally {
     }
@@ -110,7 +111,7 @@
         [self safe_replaceObjectAtIndexCFArray:index withObject:anObject];
     }
     @catch (NSException *exception) {
-        LSSafeProtectionCrashLog(exception,LSSafeProtectorCrashTypeNSMutableArray);
+        XYYSafeProtectionCrashLog(exception,XYYSafeProtectorCrashTypeNSMutableArray);
     }
     @finally {
         
@@ -122,7 +123,7 @@
         [self safe_replaceObjectsInRangeCFArray:range withObjectsFromArray:otherArray];
     }
     @catch (NSException *exception) {
-        LSSafeProtectionCrashLog(exception,LSSafeProtectorCrashTypeNSMutableArray);
+        XYYSafeProtectionCrashLog(exception,XYYSafeProtectorCrashTypeNSMutableArray);
     }
     @finally {
         
@@ -138,7 +139,7 @@
         object =  [self safe_objectAtIndexedSubscriptM:index];
     }
     @catch (NSException *exception) {
-        LSSafeProtectionCrashLog(exception,LSSafeProtectorCrashTypeNSMutableArray);
+        XYYSafeProtectionCrashLog(exception,XYYSafeProtectorCrashTypeNSMutableArray);
     }
     @finally {
         return object;
@@ -152,7 +153,7 @@
         [self safe_insertObject:anObject atIndex:index];
     }
     @catch (NSException *exception) {
-        LSSafeProtectionCrashLog(exception,LSSafeProtectorCrashTypeNSMutableArray);
+        XYYSafeProtectionCrashLog(exception,XYYSafeProtectorCrashTypeNSMutableArray);
     }
     @finally {
         
@@ -165,7 +166,7 @@
         [self safe_removeObjectAtIndex:index];
     }
     @catch (NSException *exception) {
-        LSSafeProtectionCrashLog(exception,LSSafeProtectorCrashTypeNSMutableArray);
+        XYYSafeProtectionCrashLog(exception,XYYSafeProtectorCrashTypeNSMutableArray);
     }
     @finally {
         
@@ -178,7 +179,7 @@
         [self safe_removeObjectsInRange:range];
     }
     @catch (NSException *exception) {
-        LSSafeProtectionCrashLog(exception,LSSafeProtectorCrashTypeNSMutableArray);
+        XYYSafeProtectionCrashLog(exception,XYYSafeProtectorCrashTypeNSMutableArray);
     }
     @finally {
     }
@@ -190,7 +191,7 @@
         [self safe_replaceObjectAtIndex:index withObject:anObject];
     }
     @catch (NSException *exception) {
-        LSSafeProtectionCrashLog(exception,LSSafeProtectorCrashTypeNSMutableArray);
+        XYYSafeProtectionCrashLog(exception,XYYSafeProtectorCrashTypeNSMutableArray);
     }
     @finally {
         
@@ -203,10 +204,11 @@
         [self safe_replaceObjectsInRange:range withObjectsFromArray:otherArray];
     }
     @catch (NSException *exception) {
-        LSSafeProtectionCrashLog(exception,LSSafeProtectorCrashTypeNSMutableArray);
+        XYYSafeProtectionCrashLog(exception,XYYSafeProtectorCrashTypeNSMutableArray);
     }
     @finally {
         
     }
 }
+
 @end

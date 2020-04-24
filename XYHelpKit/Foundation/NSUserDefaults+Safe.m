@@ -1,14 +1,15 @@
 //
 //  NSUserDefaults+Safe.m
-//  LSSafeProtector
-// https://github.com/lsmakethebest/LSSafeProtector
+//  FBSnapshotTestCase
 //
-//  Created by liusong on 2018/9/13.
+//  Created by 高洪成 on 2020/4/23.
 //
 
 #import "NSUserDefaults+Safe.h"
+
 #import "NSObject+SafeSwizzle.h"
-#import "LSSafeProtector.h"
+#import "XYYSafeProtector.h"
+
 
 @implementation NSUserDefaults (Safe)
 
@@ -49,7 +50,7 @@
         //defaultName空才会崩溃
         NSString *reason=[NSString stringWithFormat:@"NSUserDefaults %@ key  can`t be nil",NSStringFromSelector(_cmd)];
         NSException *exception=[NSException exceptionWithName:reason reason:reason userInfo:nil];
-        LSSafeProtectionCrashLog(exception,LSSafeProtectorCrashTypeNSUserDefaults);
+        XYYSafeProtectionCrashLog(exception,XYYSafeProtectorCrashTypeNSUserDefaults);
     }else{
         [self safe_setObject:value forKey:defaultName];
     }
@@ -63,7 +64,7 @@
     }else{
         NSString *reason=[NSString stringWithFormat:@"NSUserDefaults %@ key can`t be nil",NSStringFromSelector(_cmd)];
         NSException *exception=[NSException exceptionWithName:reason reason:reason userInfo:nil];
-        LSSafeProtectionCrashLog(exception,LSSafeProtectorCrashTypeNSUserDefaults);
+        XYYSafeProtectionCrashLog(exception,XYYSafeProtectorCrashTypeNSUserDefaults);
     }
     return obj;
 }
@@ -75,7 +76,7 @@
     }else{
         NSString *reason=[NSString stringWithFormat:@"NSUserDefaults %@ key can`t be nil",NSStringFromSelector(_cmd)];
         NSException *exception=[NSException exceptionWithName:reason reason:reason userInfo:nil];
-        LSSafeProtectionCrashLog(exception,LSSafeProtectorCrashTypeNSUserDefaults);
+        XYYSafeProtectionCrashLog(exception,XYYSafeProtectorCrashTypeNSUserDefaults);
     }
     return obj;
 }
@@ -87,7 +88,7 @@
     }else{
         NSString *reason=[NSString stringWithFormat:@"NSUserDefaults %@ key can`t be nil",NSStringFromSelector(_cmd)];
         NSException *exception=[NSException exceptionWithName:reason reason:reason userInfo:nil];
-        LSSafeProtectionCrashLog(exception,LSSafeProtectorCrashTypeNSUserDefaults);
+        XYYSafeProtectionCrashLog(exception,XYYSafeProtectorCrashTypeNSUserDefaults);
     }
     return obj;
 }
@@ -99,7 +100,7 @@
     }else{
         NSString *reason=[NSString stringWithFormat:@"NSUserDefaults %@ key can`t be nil",NSStringFromSelector(_cmd)];
         NSException *exception=[NSException exceptionWithName:reason reason:reason userInfo:nil];
-        LSSafeProtectionCrashLog(exception,LSSafeProtectorCrashTypeNSUserDefaults);
+        XYYSafeProtectionCrashLog(exception,XYYSafeProtectorCrashTypeNSUserDefaults);
     }
     return obj;
 }
@@ -111,7 +112,7 @@
     }else{
         NSString *reason=[NSString stringWithFormat:@"NSUserDefaults %@ key can`t be nil",NSStringFromSelector(_cmd)];
         NSException *exception=[NSException exceptionWithName:reason reason:reason userInfo:nil];
-        LSSafeProtectionCrashLog(exception,LSSafeProtectorCrashTypeNSUserDefaults);
+        XYYSafeProtectionCrashLog(exception,XYYSafeProtectorCrashTypeNSUserDefaults);
     }
     return obj;
 }
@@ -123,7 +124,7 @@
     }else{
         NSString *reason=[NSString stringWithFormat:@"NSUserDefaults %@ key can`t be nil",NSStringFromSelector(_cmd)];
         NSException *exception=[NSException exceptionWithName:reason reason:reason userInfo:nil];
-        LSSafeProtectionCrashLog(exception,LSSafeProtectorCrashTypeNSUserDefaults);
+        XYYSafeProtectionCrashLog(exception,XYYSafeProtectorCrashTypeNSUserDefaults);
     }
     return obj;
 }
@@ -135,7 +136,7 @@
     }else{
         NSString *reason=[NSString stringWithFormat:@"NSUserDefaults %@ key can`t be nil",NSStringFromSelector(_cmd)];
         NSException *exception=[NSException exceptionWithName:reason reason:reason userInfo:nil];
-        LSSafeProtectionCrashLog(exception,LSSafeProtectorCrashTypeNSUserDefaults);
+        XYYSafeProtectionCrashLog(exception,XYYSafeProtectorCrashTypeNSUserDefaults);
     }
     return obj;
 }
@@ -148,7 +149,7 @@
     }else{
         NSString *reason=[NSString stringWithFormat:@"NSUserDefaults %@ key can`t be nil",NSStringFromSelector(_cmd)];
         NSException *exception=[NSException exceptionWithName:reason reason:reason userInfo:nil];
-        LSSafeProtectionCrashLog(exception,LSSafeProtectorCrashTypeNSUserDefaults);
+        XYYSafeProtectionCrashLog(exception,XYYSafeProtectorCrashTypeNSUserDefaults);
     }
     return obj;
 }
@@ -160,7 +161,7 @@
     }else{
         NSString *reason=[NSString stringWithFormat:@"NSUserDefaults %@ key can`t be nil",NSStringFromSelector(_cmd)];
         NSException *exception=[NSException exceptionWithName:reason reason:reason userInfo:nil];
-        LSSafeProtectionCrashLog(exception,LSSafeProtectorCrashTypeNSUserDefaults);
+        XYYSafeProtectionCrashLog(exception,XYYSafeProtectorCrashTypeNSUserDefaults);
     }
     return obj;
 }
@@ -174,10 +175,9 @@
     }else{
         NSString *reason=[NSString stringWithFormat:@"NSUserDefaults %@ key can`t be nil",NSStringFromSelector(_cmd)];
         NSException *exception=[NSException exceptionWithName:reason reason:reason userInfo:nil];
-        LSSafeProtectionCrashLog(exception,LSSafeProtectorCrashTypeNSUserDefaults);
+        XYYSafeProtectionCrashLog(exception,XYYSafeProtectorCrashTypeNSUserDefaults);
     }
     return obj;
 }
-
 
 @end

@@ -1,16 +1,16 @@
 //
 //  NSMutableDictionary+Safe.m
-// https://github.com/lsmakethebest/LSSafeProtector
+//  FBSnapshotTestCase
 //
-//  Created by liusong on 2018/4/20.
-//  Copyright © 2018年 liusong. All rights reserved.
+//  Created by 高洪成 on 2020/4/23.
+//
 
 #import "NSMutableDictionary+Safe.h"
 #import "NSObject+SafeSwizzle.h"
-#import "LSSafeProtector.h"
+#import "XYYSafeProtector.h"
+
 
 @implementation NSMutableDictionary (Safe)
-
 +(void)openSafeProtector
 {
     static dispatch_once_t onceToken;
@@ -35,7 +35,7 @@
         [self safe_setObjectCFDictionary:anObject forKey:aKey];
     }
     @catch (NSException *exception) {
-        LSSafeProtectionCrashLog(exception,LSSafeProtectorCrashTypeNSMutableDictionary);
+        XYYSafeProtectionCrashLog(exception,XYYSafeProtectorCrashTypeNSMutableDictionary);
     }
     @finally {
     }
@@ -47,7 +47,7 @@
         [self safe_removeObjectForKeyCFDictionary:aKey];
     }
     @catch (NSException *exception) {
-        LSSafeProtectionCrashLog(exception,LSSafeProtectorCrashTypeNSMutableDictionary);
+        XYYSafeProtectionCrashLog(exception,XYYSafeProtectorCrashTypeNSMutableDictionary);
     }
     @finally {
     }
@@ -60,7 +60,7 @@
         [self safe_setObject:anObject forKey:aKey];
     }
     @catch (NSException *exception) {
-        LSSafeProtectionCrashLog(exception,LSSafeProtectorCrashTypeNSMutableDictionary);
+        XYYSafeProtectionCrashLog(exception,XYYSafeProtectorCrashTypeNSMutableDictionary);
     }
     @finally {
     }
@@ -72,7 +72,7 @@
         [self safe_setObject:anObject forKeyedSubscript:aKey];
     }
     @catch (NSException *exception) {
-        LSSafeProtectionCrashLog(exception,LSSafeProtectorCrashTypeNSMutableDictionary);
+        XYYSafeProtectionCrashLog(exception,XYYSafeProtectorCrashTypeNSMutableDictionary);
     }
     @finally {
     }
@@ -84,13 +84,11 @@
         [self safe_removeObjectForKey:aKey];
     }
     @catch (NSException *exception) {
-        LSSafeProtectionCrashLog(exception,LSSafeProtectorCrashTypeNSMutableDictionary);
+        XYYSafeProtectionCrashLog(exception,XYYSafeProtectorCrashTypeNSMutableDictionary);
     }
     @finally {
     }
 }
 
+
 @end
-
-
-

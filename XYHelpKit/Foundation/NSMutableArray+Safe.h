@@ -1,13 +1,22 @@
 //
 //  NSMutableArray+Safe.h
-// https://github.com/lsmakethebest/LSSafeProtector
+//  XYHelpKit_Example
 //
-//  Created by liusong on 2018/4/20.
-//  Copyright © 2018年 liusong. All rights reserved.
+//  Created by 高洪成 on 2020/4/23.
+//  Copyright © 2020 gaohongcheng. All rights reserved.
+//
+
+
 
 #import <Foundation/Foundation.h>
 
+NS_ASSUME_NONNULL_BEGIN
 
+@interface NSMutableArray (Safe)
+
+@end
+
+NS_ASSUME_NONNULL_END
 /**
    可避免以下crash
  
@@ -20,9 +29,3 @@
    7. - (void)replaceObjectsInRange:(NSRange)range withObjectsFromArray:(NSArray*)otherArray;
  
 */
- 
-@interface NSMutableArray (Safe)
-
-
-
-@end

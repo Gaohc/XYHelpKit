@@ -1,15 +1,14 @@
-
 //
 //  NSMutableOrderedSet+Safe.m
-//  LSSafeProtector
-// https://github.com/lsmakethebest/LSSafeProtector
+//  FBSnapshotTestCase
 //
-//  Created by liusong on 2018/9/13.
+//  Created by 高洪成 on 2020/4/23.
 //
 
 #import "NSMutableOrderedSet+Safe.h"
+
 #import "NSObject+SafeSwizzle.h"
-#import "LSSafeProtector.h"
+#import "XYYSafeProtector.h"
 
 @implementation NSMutableOrderedSet (Safe)
 
@@ -34,7 +33,7 @@
         object = [self safe_objectAtIndex:idx];
     }
     @catch (NSException *exception) {
-        LSSafeProtectionCrashLog(exception,LSSafeProtectorCrashTypeNSMutableOrderedSet);
+        XYYSafeProtectionCrashLog(exception,XYYSafeProtectorCrashTypeNSMutableOrderedSet);
     }
     @finally {
         return object;
@@ -46,7 +45,7 @@
         [self safe_insertObject:anObject atIndex:index];
     }
     @catch (NSException *exception) {
-        LSSafeProtectionCrashLog(exception,LSSafeProtectorCrashTypeNSMutableOrderedSet);
+        XYYSafeProtectionCrashLog(exception,XYYSafeProtectorCrashTypeNSMutableOrderedSet);
     }
     @finally {
         
@@ -60,7 +59,7 @@
         [self safe_removeObjectAtIndex:index];
     }
     @catch (NSException *exception) {
-        LSSafeProtectionCrashLog(exception,LSSafeProtectorCrashTypeNSMutableOrderedSet);
+        XYYSafeProtectionCrashLog(exception,XYYSafeProtectorCrashTypeNSMutableOrderedSet);
     }
     @finally {
         
@@ -74,7 +73,7 @@
         [self safe_replaceObjectAtIndex:index withObject:anObject];
     }
     @catch (NSException *exception) {
-        LSSafeProtectionCrashLog(exception,LSSafeProtectorCrashTypeNSMutableOrderedSet);
+        XYYSafeProtectionCrashLog(exception,XYYSafeProtectorCrashTypeNSMutableOrderedSet);
     }
     @finally {
         
@@ -87,12 +86,11 @@
         [self safe_addObject:object];
     }
     @catch (NSException *exception) {
-        LSSafeProtectionCrashLog(exception,LSSafeProtectorCrashTypeNSMutableOrderedSet);
+        XYYSafeProtectionCrashLog(exception,XYYSafeProtectorCrashTypeNSMutableOrderedSet);
     }
     @finally {
         
     }
 }
-
 
 @end

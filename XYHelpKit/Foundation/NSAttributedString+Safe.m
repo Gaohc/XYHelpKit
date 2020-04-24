@@ -1,13 +1,14 @@
 //
-//  NSMutableAttributedString+Safe.m
-// https://github.com/lsmakethebest/LSSafeProtector
+//  NSAttributedString+Safe.m
+//  FBSnapshotTestCase
 //
-//  Created by liusong on 2018/4/20.
-//  Copyright © 2018年 liusong. All rights reserved.
+//  Created by 高洪成 on 2020/4/23.
+//
 
-#import <UIKit/UIKit.h>
+#import "NSAttributedString+Safe.h"
+
 #import "NSObject+SafeSwizzle.h"
-#import "LSSafeProtector.h"
+#import "XYYSafeProtector.h"
 
 @implementation NSAttributedString (Safe)
 
@@ -17,7 +18,6 @@
     dispatch_once(&onceToken, ^{
         
         Class dClass = NSClassFromString(@"NSConcreteAttributedString");
-        
         //initWithString:
         [self safe_exchangeInstanceMethod:dClass originalSel:@selector(initWithString:) newSel:@selector(safe_initWithString:)];
         
@@ -36,7 +36,7 @@
         object = [self safe_initWithString:str];
     }
     @catch (NSException *exception) {
-        LSSafeProtectionCrashLog(exception,LSSafeProtectorCrashTypeNSAttributedString);
+        XYYSafeProtectionCrashLog(exception,XYYSafeProtectorCrashTypeNSAttributedString);
     }
     @finally {
         return object;
@@ -51,7 +51,7 @@
         object = [self safe_initWithAttributedString:attrStr];
     }
     @catch (NSException *exception) {
-        LSSafeProtectionCrashLog(exception,LSSafeProtectorCrashTypeNSAttributedString);
+        XYYSafeProtectionCrashLog(exception,XYYSafeProtectorCrashTypeNSAttributedString);
     }
     @finally {
         return object;
@@ -66,7 +66,7 @@
         object = [self safe_initWithString:str attributes:attrs];
     }
     @catch (NSException *exception) {
-        LSSafeProtectionCrashLog(exception,LSSafeProtectorCrashTypeNSAttributedString);
+        XYYSafeProtectionCrashLog(exception,XYYSafeProtectorCrashTypeNSAttributedString);
     }
     @finally {
         return object;
@@ -76,5 +76,3 @@
 
 
 @end
-
-

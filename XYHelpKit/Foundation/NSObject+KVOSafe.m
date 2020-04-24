@@ -1,18 +1,16 @@
 //
 //  NSObject+KVOSafe.m
-// https://github.com/lsmakethebest/LSSafeProtector
+//  FBSnapshotTestCase
 //
-//  Created by liusong on 2018/4/20.
-//  Copyright © 2018年 liusong. All rights reserved.
+//  Created by 高洪成 on 2020/4/23.
+//
 
 #import "NSObject+KVOSafe.h"
 #import "NSObject+SafeSwizzle.h"
-#import "LSSafeProtector.h"
+#import "XYYSafeProtector.h"
 #import <objc/message.h>
 
-
-
-@interface LSKVOObserverInfo()
+@interface XYYKVOObserverInfo()
 
 @property (nonatomic,weak) id target;
 @property (nonatomic,copy)NSString *targetAddress;
@@ -27,24 +25,24 @@
 
 
 @end
-@implementation LSKVOObserverInfo
+@implementation XYYKVOObserverInfo
 @end
 
-@interface LSRecursiveLock : NSRecursiveLock
+@interface XYYRecursiveLock : NSRecursiveLock
 @end
-@implementation LSRecursiveLock
+@implementation XYYRecursiveLock
 -(void)dealloc
 {
-    LSKVOSafeLog(@"LSRecursiveLock  ---- dealloc -------  %@",self);
+    XYYKVOSafeLog(@"LSRecursiveLock  ---- dealloc -------  %@",self);
 }
 
 @end
 
 @interface NSObject()
-@property (nonatomic,strong) LSKVOObserverInfo *safe_willRemoveObserverInfo;
+@property (nonatomic,strong) XYYKVOObserverInfo *safe_willRemoveObserverInfo;
 //dealloc时标记有多少没移除，然后手动替他移除，比如有7个 我都替他移除掉，数量还是7，然后用户手动移除时，数量会减少，然后计算最终剩多少就是用户没有移除的，提示用户有没移除的KVO  默认为YES dealloc时改为NO
 @property (nonatomic,assign) BOOL safe_notNeedRemoveKeypathFromCrashArray;
-@property (nonatomic,strong) LSRecursiveLock *safe_lock;
+@property (nonatomic,strong) XYYRecursiveLock *safe_lock;
 @end
 
 @implementation NSObject (KVOSafe)
@@ -156,10 +154,10 @@ static NSMutableDictionary *KVOSafeDeallocCrashes() {
 - (void)setSafe_upObservedArray:(NSMutableArray *)safe_upObservedArray{
     objc_setAssociatedObject(self, @selector(safe_upObservedArray), safe_upObservedArray, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
--(void)setSafe_willRemoveObserverInfo:(LSKVOObserverInfo *)safe_willRemoveObserverInfo{
+-(void)setSafe_willRemoveObserverInfo:(XYYKVOObserverInfo *)safe_willRemoveObserverInfo{
     objc_setAssociatedObject(self, @selector(safe_willRemoveObserverInfo), safe_willRemoveObserverInfo, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
--(LSKVOObserverInfo *)safe_willRemoveObserverInfo{
+-(XYYKVOObserverInfo *)safe_willRemoveObserverInfo{
     return  objc_getAssociatedObject(self, _cmd);
 }
 
@@ -170,12 +168,12 @@ static NSMutableDictionary *KVOSafeDeallocCrashes() {
     return  [objc_getAssociatedObject(self, _cmd) boolValue];
 }
 
--(void)setSafe_lock:(LSRecursiveLock *)safe_lock{
+-(void)setSafe_lock:(XYYRecursiveLock *)safe_lock{
     objc_setAssociatedObject(self, @selector(safe_lock),safe_lock, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
--(LSRecursiveLock *)safe_lock
+-(XYYRecursiveLock *)safe_lock
 {
-    LSRecursiveLock *myLock=objc_getAssociatedObject(self, _cmd);
+    XYYRecursiveLock *myLock=objc_getAssociatedObject(self, _cmd);
     return myLock;
 }
 
@@ -194,7 +192,7 @@ static NSMutableDictionary *KVOSafeDeallocCrashes() {
         emoji=@"😡😡😡😡😡";
     }
 
-    LSKVOSafeLog(@"\n*******   %@ %@:     ##################\n\t%@(%p)  %@ %@(%p)   keyPath:%@  context:%p\n----------------------------------------",text,emoji,[self class],self,method,[observer class],observer,keyPath,context);
+    XYYKVOSafeLog(@"\n*******   %@ %@:     ##################\n\t%@(%p)  %@ %@(%p)   keyPath:%@  context:%p\n----------------------------------------",text,emoji,[self class],self,method,[observer class],observer,keyPath,context);
 }
 
 -(void)safe_observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSKeyValueChangeKey,id> *)change context:(void *)context
@@ -202,7 +200,7 @@ static NSMutableDictionary *KVOSafeDeallocCrashes() {
     @try{
         [self safe_observeValueForKeyPath:keyPath ofObject:object change:change context:context];
     }@catch (NSException *exception){
-        LSSafeProtectionCrashLog(exception,LSSafeProtectorCrashTypeKVO);
+        XYYSafeProtectionCrashLog(exception,XYYSafeProtectorCrashTypeKVO);
     }@finally{
         
     }
@@ -215,18 +213,18 @@ static NSMutableDictionary *KVOSafeDeallocCrashes() {
         return ;
     }
     observer.safe_notNeedRemoveKeypathFromCrashArray=YES;
-    LSRecursiveLock *lock;
+    XYYRecursiveLock *lock;
     @synchronized(self){
         lock =self.safe_lock;
         if (lock==nil) {
-            lock=[[LSRecursiveLock alloc]init];
+            lock=[[XYYRecursiveLock alloc]init];
             lock.name=[NSString stringWithFormat:@"%@",[self class]];
             self.safe_lock=lock;
         }
     }
     [lock lock];
     
-    LSKVOObserverInfo *info=[self safe_canAddOrRemoveObserverWithKeypathWithObserver:observer keyPath:keyPath context:context haveContext:YES isAdd:YES];
+    XYYKVOObserverInfo *info=[self safe_canAddOrRemoveObserverWithKeypathWithObserver:observer keyPath:keyPath context:context haveContext:YES isAdd:YES];
     
     if(info!=nil){
         //如果添加过了直接return
@@ -238,7 +236,7 @@ static NSMutableDictionary *KVOSafeDeallocCrashes() {
         [self safe_logKVODebugInfoWithText:@"添加成功" observer:observer keyPath:keyPath context:context];
         NSString *targetAddress=[NSString stringWithFormat:@"%p",self];
         NSString *observerAddress=[NSString stringWithFormat:@"%p",observer];
-        LSKVOObserverInfo *info=[LSKVOObserverInfo new];
+        XYYKVOObserverInfo *info=[XYYKVOObserverInfo new];
         info.target=self;
         info.observer=observer;
         info.keyPath=keyPath;
@@ -260,7 +258,7 @@ static NSMutableDictionary *KVOSafeDeallocCrashes() {
         [self safe_KVOChangeDidDeallocSignal];
     }
     @catch (NSException *exception) {
-        LSSafeProtectionCrashLog(exception,LSSafeProtectorCrashTypeKVO);
+        XYYSafeProtectionCrashLog(exception,XYYSafeProtectorCrashTypeKVO);
     }
     @finally {
 //        [self safe_logKVODebugInfoWithText:@"添加结束" observer:observer keyPath:keyPath context:context];
@@ -287,13 +285,13 @@ static NSMutableDictionary *KVOSafeDeallocCrashes() {
     if(!observer||!keyPath||([keyPath isKindOfClass:[NSString class]]&&keyPath.length<=0)){
         return ;
     }
-    LSRecursiveLock *lock;
+    XYYRecursiveLock *lock;
     @synchronized(self){
         lock =self.safe_lock;
         if (lock==nil) {
             lock=observer.safe_lock;
             if (lock==nil) {
-                lock=[[LSRecursiveLock alloc]init];
+                lock=[[XYYRecursiveLock alloc]init];
                 lock.name=[NSString stringWithFormat:@"%@",[observer class]];
                 observer.safe_lock=lock;
             }
@@ -301,7 +299,7 @@ static NSMutableDictionary *KVOSafeDeallocCrashes() {
     }
     
     [lock lock];
-    LSKVOObserverInfo *info=[self safe_canAddOrRemoveObserverWithKeypathWithObserver:observer keyPath:keyPath context:context haveContext:isContext isAdd:NO];
+    XYYKVOObserverInfo *info=[self safe_canAddOrRemoveObserverWithKeypathWithObserver:observer keyPath:keyPath context:context haveContext:isContext isAdd:NO];
     if (info==nil) {
         // 重复删除观察者或不含有 或者keypath=nil  observer=nil
         NSString *text=@"";
@@ -320,7 +318,7 @@ static NSMutableDictionary *KVOSafeDeallocCrashes() {
             NSString *targetAddress=[NSString stringWithFormat:@"%p",self];
             NSString *observerAddress=[NSString stringWithFormat:@"%p",observer];
             //此处是因为remove  keypath context调用的还是remove keypath方法
-            LSKVOObserverInfo *info=[LSKVOObserverInfo new];
+            XYYKVOObserverInfo *info=[XYYKVOObserverInfo new];
             info.keyPath=keyPath;
             info.context=context;
             info.targetAddress=targetAddress;
@@ -339,7 +337,7 @@ static NSMutableDictionary *KVOSafeDeallocCrashes() {
         }
     }
     @catch (NSException *exception) {
-        LSSafeProtectionCrashLog(exception,LSSafeProtectorCrashTypeKVO);
+        XYYSafeProtectionCrashLog(exception,XYYSafeProtectorCrashTypeKVO);
     }
     @finally {
         if(isContext){
@@ -350,7 +348,7 @@ static NSMutableDictionary *KVOSafeDeallocCrashes() {
     }
 }
 
--(void)safe_removeSuccessObserver:(NSObject*)observer info:(LSKVOObserverInfo*)info
+-(void)safe_removeSuccessObserver:(NSObject*)observer info:(XYYKVOObserverInfo*)info
 {
     //    NSString *key =[NSString stringWithFormat:@"%p",self];
     //哪些对象监听了自己
@@ -374,10 +372,10 @@ static NSMutableDictionary *KVOSafeDeallocCrashes() {
 }
 
 //为什么判断能否移除 而不是直接remove try catch 捕获异常，因为有的类remove keypath两次，try直接就崩溃了
--(LSKVOObserverInfo*)safe_canAddOrRemoveObserverWithKeypathWithObserver:(NSObject *)observer keyPath:(NSString*)keyPath context:(void*)context haveContext:(BOOL)haveContext isAdd:(BOOL)isAdd
+-(XYYKVOObserverInfo*)safe_canAddOrRemoveObserverWithKeypathWithObserver:(NSObject *)observer keyPath:(NSString*)keyPath context:(void*)context haveContext:(BOOL)haveContext isAdd:(BOOL)isAdd
 {
     if(observer.safe_notNeedRemoveKeypathFromCrashArray==NO){
-        NSString *observerKey=LSFormatterStringFromObject(observer);
+        NSString *observerKey=XYYFormatterStringFromObject(observer);
         NSMutableDictionary *dic=KVOSafeDeallocCrashes()[observerKey];
         NSMutableArray *array=dic[@"keyPaths"];
         __block NSMutableDictionary *willRemoveDic;
@@ -411,12 +409,12 @@ static NSMutableDictionary *KVOSafeDeallocCrashes() {
     NSMutableArray *downArray = self.safe_downObservedKeyPathArray;
     
     //返回已重复的KVO，或者将要移除的KVO
-    __block LSKVOObserverInfo *info;
+    __block XYYKVOObserverInfo *info;
     
     //处理添加的逻辑
     if (isAdd) {
         //判断是否完全相等
-        [downArray enumerateObjectsUsingBlock:^(LSKVOObserverInfo *  obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        [downArray enumerateObjectsUsingBlock:^(XYYKVOObserverInfo *  obj, NSUInteger idx, BOOL * _Nonnull stop) {
             if ([obj.observerAddress isEqualToString:[NSString stringWithFormat:@"%p",observer]]&&[obj.keyPath isEqualToString:keyPath]) {
                 if(obj.context==context){
                     info=obj;
@@ -432,7 +430,7 @@ static NSMutableDictionary *KVOSafeDeallocCrashes() {
     
     
     //处理移除的逻辑
-    [downArray enumerateObjectsWithOptions:(NSEnumerationReverse) usingBlock:^(LSKVOObserverInfo *  obj, NSUInteger idx, BOOL * _Nonnull stop) {
+    [downArray enumerateObjectsWithOptions:(NSEnumerationReverse) usingBlock:^(XYYKVOObserverInfo *  obj, NSUInteger idx, BOOL * _Nonnull stop) {
         if ([obj.observerAddress isEqualToString:[NSString stringWithFormat:@"%p",observer]]&&[obj.keyPath isEqualToString:keyPath]) {
             if(haveContext){
                 if(obj.context==context){
@@ -459,16 +457,16 @@ static NSMutableDictionary *KVOSafeDeallocCrashes() {
  */
 -(void)safe_KVODealloc
 {
-    LSKVOSafeLog(@"\n******* 🚗🚗🚗🚗🚗  %@(%p)  safe_KVODealloc  🚗🚗🚗🚗🚗\n----------------------------------------",[self class],self);
+    XYYKVOSafeLog(@"\n******* 🚗🚗🚗🚗🚗  %@(%p)  safe_KVODealloc  🚗🚗🚗🚗🚗\n----------------------------------------",[self class],self);
     if (self.safe_upObservedArray.count>0) {
         @synchronized(KVOSafeDeallocCrashes()){
-            NSString *currentKey=LSFormatterStringFromObject(self);
+            NSString *currentKey=XYYFormatterStringFromObject(self);
             NSMutableDictionary *crashDic=[NSMutableDictionary dictionary];
             NSMutableArray *array=[NSMutableArray array];
             crashDic[@"keyPaths"]=array;
             crashDic[@"className"]=NSStringFromClass([self class]);
             KVOSafeDeallocCrashes()[currentKey]=crashDic;
-            for (LSKVOObserverInfo *info in self.safe_upObservedArray) {
+            for (XYYKVOObserverInfo *info in self.safe_upObservedArray) {
                 NSMutableDictionary *newDic=[NSMutableDictionary dictionary];
                 newDic[@"targetName"]=info.targetClassName;
                 newDic[@"targetAddress"]=info.targetAddress;
@@ -486,7 +484,7 @@ static NSMutableDictionary *KVOSafeDeallocCrashes() {
     //监听了哪些人 让那些人移除自己
     NSMutableArray *newUpArray=[[[self.safe_upObservedArray reverseObjectEnumerator]allObjects]mutableCopy];
     
-    for (LSKVOObserverInfo *upInfo in newUpArray) {
+    for (XYYKVOObserverInfo *upInfo in newUpArray) {
         id target=upInfo.target;
         if (target) {
             [target safe_allRemoveObserver:self forKeyPath:upInfo.keyPath context:upInfo.context isContext:upInfo.context!=NULL];
@@ -498,7 +496,7 @@ static NSMutableDictionary *KVOSafeDeallocCrashes() {
     
     //谁监听了自己 移除他们 这块必须处理  不然 A->B   A先销毁了 在B里面调用A remove就无效了，因为A=nil
     NSMutableArray *downNewArray=[[[self.safe_downObservedKeyPathArray reverseObjectEnumerator]allObjects] mutableCopy];
-    for (LSKVOObserverInfo *downInfo in downNewArray) {
+    for (XYYKVOObserverInfo *downInfo in downNewArray) {
         [self safe_allRemoveObserver:downInfo.observer forKeyPath:downInfo.keyPath context:downInfo.context isContext:downInfo.context!=NULL];
     }
     self.safe_notNeedRemoveKeypathFromCrashArray=NO;
@@ -512,12 +510,12 @@ static NSMutableDictionary *KVOSafeDeallocCrashes() {
         NSArray *array = [crashDic[@"keyPaths"] copy];
         for (NSMutableDictionary *dic in array) {
             NSString *reason=[NSString stringWithFormat:@"%@:(%@） dealloc时仍然监听着 %@:%@ 的 keyPath of %@ context:%@",crashDic[@"className"],classAddress,dic[@"targetName"],dic[@"targetAddress"],dic[@"keyPath"],dic[@"context"]];
-            NSException *exception=[NSException exceptionWithName:@"KVO crash" reason:reason userInfo:nil]; LSSafeProtectionCrashLog(exception,LSSafeProtectorCrashTypeKVO);
+            NSException *exception=[NSException exceptionWithName:@"KVO crash" reason:reason userInfo:nil]; XYYSafeProtectionCrashLog(exception,XYYSafeProtectorCrashTypeKVO);
         }
         [KVOSafeDeallocCrashes() removeObjectForKey:currentKey];
     }
 }
-NSString * LSFormatterStringFromObject(id object) {
+NSString * XYYFormatterStringFromObject(id object) {
     return   [NSString stringWithFormat:@"%p-%@",object,NSStringFromClass([object class])];
 }
 

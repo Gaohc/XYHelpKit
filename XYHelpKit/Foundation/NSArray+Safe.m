@@ -1,14 +1,14 @@
 //
 //  NSArray+Safe.m
-// https://github.com/lsmakethebest/LSSafeProtector
+//  FBSnapshotTestCase
 //
-//  Created by liusong on 2018/4/20.
-//  Copyright © 2018年 liusong. All rights reserved.
+//  Created by 高洪成 on 2020/4/23.
 //
 
 #import "NSArray+Safe.h"
+
 #import "NSObject+SafeSwizzle.h"
-#import "LSSafeProtector.h"
+#import "XYYSafeProtector.h"
 
 @implementation NSArray (Safe)
 
@@ -37,7 +37,7 @@
         instance = [self safe_initWithObjects:objects count:cnt];
     }
     @catch (NSException *exception) {
-        LSSafeProtectionCrashLog(exception,LSSafeProtectorCrashTypeNSArray);
+        XYYSafeProtectionCrashLog(exception,XYYSafeProtectorCrashTypeNSArray);
         
         //以下是对错误数据的处理，把为nil的数据去掉,然后初始化数组
         NSInteger newObjsIndex = 0;
@@ -63,7 +63,7 @@
         object = [self safe_objectAtIndexedSubscriptI:index];
     }
     @catch (NSException *exception) {
-        LSSafeProtectionCrashLog(exception,LSSafeProtectorCrashTypeNSArray);
+        XYYSafeProtectionCrashLog(exception,XYYSafeProtectorCrashTypeNSArray);
     }
     @finally {
         return object;
@@ -76,7 +76,7 @@
         object = [self safe_objectAtIndexI:index];
     }
     @catch (NSException *exception) {
-        LSSafeProtectionCrashLog(exception,LSSafeProtectorCrashTypeNSArray);
+        XYYSafeProtectionCrashLog(exception,XYYSafeProtectorCrashTypeNSArray);
     }
     @finally {
         return object;
@@ -90,7 +90,7 @@
         object = [self safe_objectAtIndex0:index];
     }
     @catch (NSException *exception) {
-        LSSafeProtectionCrashLog(exception,LSSafeProtectorCrashTypeNSArray);
+        XYYSafeProtectionCrashLog(exception,XYYSafeProtectorCrashTypeNSArray);
     }
     @finally {
         return object;
@@ -103,7 +103,7 @@
         object = [self safe_objectAtIndexSI:index];
     }
     @catch (NSException *exception) {
-        LSSafeProtectionCrashLog(exception,LSSafeProtectorCrashTypeNSArray);
+        XYYSafeProtectionCrashLog(exception,XYYSafeProtectorCrashTypeNSArray);
     }
     @finally {
         return object;
@@ -112,7 +112,5 @@
 
 
 
+
 @end
-
-
-

@@ -4,7 +4,7 @@ PODS:
   - FBSnapshotTestCase/Core (2.1.4)
   - FBSnapshotTestCase/SwiftSupport (2.1.4):
     - FBSnapshotTestCase/Core
-  - XYHelpKit (0.1.0)
+  - XYHelpKit (0.2.0)
 
 DEPENDENCIES:
   - FBSnapshotTestCase
@@ -20,7 +20,7 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   FBSnapshotTestCase: 094f9f314decbabe373b87cc339bea235a63e07a
-  XYHelpKit: 5b2867942bcf23a974aa92dc43d88af2a326ed3e
+  XYHelpKit: c167df5ad221b9af8b90bc9dd39ce52150ef2b0a
 
 PODFILE CHECKSUM: b3e5d813be1a79858d256d99008d6906091c62a6
 

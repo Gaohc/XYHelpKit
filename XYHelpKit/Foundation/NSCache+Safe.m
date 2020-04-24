@@ -1,14 +1,14 @@
 //
 //  NSCache+Safe.m
-//  LSSafeProtector
-// https://github.com/lsmakethebest/LSSafeProtector
+//  FBSnapshotTestCase
 //
-//  Created by liusong on 2018/9/13.
+//  Created by 高洪成 on 2020/4/23.
 //
 
 #import "NSCache+Safe.h"
 #import "NSObject+SafeSwizzle.h"
-#import "LSSafeProtector.h"
+#import "XYYSafeProtector.h"
+
 
 @implementation NSCache (Safe)
 
@@ -30,7 +30,7 @@
     }else{
         NSString *reason=[NSString stringWithFormat:@"NSCache %@ key and value can`t be nil",NSStringFromSelector(_cmd)];
         NSException *exception=[NSException exceptionWithName:reason reason:reason userInfo:nil];
-        LSSafeProtectionCrashLog(exception,LSSafeProtectorCrashTypeNSCache);
+        XYYSafeProtectionCrashLog(exception,XYYSafeProtectorCrashTypeNSCache);
     }
 }
 -(void)safe_setObject:(id)obj forKey:(id)key cost:(NSUInteger)g
@@ -40,7 +40,7 @@
     }else{
         NSString *reason=[NSString stringWithFormat:@"NSCache %@ key and value can`t be nil",NSStringFromSelector(_cmd)];
         NSException *exception=[NSException exceptionWithName:reason reason:reason userInfo:nil];
-        LSSafeProtectionCrashLog(exception,LSSafeProtectorCrashTypeNSCache);
+        XYYSafeProtectionCrashLog(exception,XYYSafeProtectorCrashTypeNSCache);
     }
 }
 

@@ -30,7 +30,7 @@ TODO: Add long description of the pod here.
 
   s.ios.deployment_target = '8.0'
 
-  s.source_files = 'XYHelpKit/Core/*','XYHelpKit/Foundation/*','XYHelpKit/MRC/*',
+  s.source_files = 'XYHelpKit/**/*'
   
   # s.resource_bundles = {
   #   'XYHelpKit' => ['XYHelpKit/Assets/*.png']

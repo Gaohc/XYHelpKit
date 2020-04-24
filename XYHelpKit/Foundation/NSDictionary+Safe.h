@@ -1,14 +1,23 @@
 //
 //  NSDictionary+Safe.h
-// https://github.com/lsmakethebest/LSSafeProtector
+//  XYHelpKit_Example
 //
-//  Created by liusong on 2018/4/20.
-//  Copyright © 2018年 liusong. All rights reserved.
+//  Created by 高洪成 on 2020/4/23.
+//  Copyright © 2020 gaohongcheng. All rights reserved.
+//
+
+
+
 
 #import <Foundation/Foundation.h>
 
+NS_ASSUME_NONNULL_BEGIN
+
 @interface NSDictionary (Safe)
+
 @end
+
+NS_ASSUME_NONNULL_END
 
 // 类继承关系
 // __NSDictionaryI              继承于 NSDictionary
@@ -56,6 +65,3 @@
  3. @{@"key1":@"value1",@"key2":@"value2"}也会调用2中的方法
  4. - (instancetype)initWithObjects:(NSArray<ObjectType> *)objects forKeys:(NSArray<KeyType <NSCopying>> *)keys;
  */
-
-
-

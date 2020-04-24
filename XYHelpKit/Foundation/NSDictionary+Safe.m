@@ -1,13 +1,15 @@
 //
 //  NSDictionary+Safe.m
-// https://github.com/lsmakethebest/LSSafeProtector
+//  XYHelpKit_Example
 //
-//  Created by liusong on 2018/4/20.
-//  Copyright © 2018年 liusong. All rights reserved.
+//  Created by 高洪成 on 2020/4/23.
+//  Copyright © 2020 gaohongcheng. All rights reserved.
+//
 
 #import "NSDictionary+Safe.h"
+
 #import "NSObject+SafeSwizzle.h"
-#import "LSSafeProtector.h"
+#import "XYYSafeProtector.h"
 
 @implementation NSDictionary (Safe)
 
@@ -31,7 +33,7 @@
     }
     @catch (NSException *exception) {
         
-        LSSafeProtectionCrashLog(exception,LSSafeProtectorCrashTypeNSDictionary);
+        XYYSafeProtectionCrashLog(exception,XYYSafeProtectorCrashTypeNSDictionary);
         
         //处理错误的数据，重新初始化一个字典
         NSUInteger count=MIN(objects.count, keys.count);
@@ -58,7 +60,7 @@
     }
     @catch (NSException *exception) {
 
-        LSSafeProtectionCrashLog(exception,LSSafeProtectorCrashTypeNSDictionary);
+        XYYSafeProtectionCrashLog(exception,XYYSafeProtectorCrashTypeNSDictionary);
 
         //处理错误的数据，重新初始化一个字典
         NSUInteger index = 0;
@@ -80,4 +82,3 @@
 }
 
 @end
-

@@ -1,14 +1,19 @@
 //
 //  NSArray+Safe.h
-// https://github.com/lsmakethebest/LSSafeProtector
+//  FBSnapshotTestCase
 //
-//  Created by liusong on 2018/4/20.
-//  Copyright © 2018年 liusong. All rights reserved.
+//  Created by 高洪成 on 2020/4/23.
+//
 
 #import <Foundation/Foundation.h>
 
+NS_ASSUME_NONNULL_BEGIN
+
 @interface NSArray (Safe)
+
 @end
+
+NS_ASSUME_NONNULL_END
 
 // 类继承关系
 // __NSArrayI                 继承于 NSArray
@@ -77,9 +82,3 @@ NSMutableArray *array=[[NSUserDefaults standardUserDefaults] objectForKey:@"name
    4. - (id)objectAtIndex:(NSUInteger)index
  
  */
-
-
-
-
-
-

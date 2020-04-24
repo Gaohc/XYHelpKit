@@ -1,23 +1,22 @@
 //
-//  LSSafeProtector.m
-// https://github.com/lsmakethebest/LSSafeProtector
+//  XYYSafeProtector.m
+//  FBSnapshotTestCase
 //
-//  Created by liusong on 2018/8/9.
-//  Copyright © 2018年 liusong. All rights reserved.
+//  Created by 高洪成 on 2020/4/23.
 //
 
-#import "LSSafeProtector.h"
+#import "XYYSafeProtector.h"
 
-static  LSSafeProtectorLogType ls_safe_logType=LSSafeProtectorLogTypeAll;
-static  LSSafeProtectorBlock lsSafeProtectorBlock;
-static  BOOL LSSafeProtectorKVODebugInfoEnable=NO;
-@interface NSObject (LSSafeProtector)
+static  XYYSafeProtectorLogType XYY_safe_logType=XYYSafeProtectorLogTypeAll;
+static  XYYSafeProtectorBlock xyySafeProtectorBlock;
+static  BOOL XYYSafeProtectorKVODebugInfoEnable=NO;
+
+@interface NSObject (XYYSafeProtector)
 //打开当前类安全保护
 + (void)openSafeProtector;
 + (void)openKVOSafeProtector;
 +(void)openMRCSafeProtector;
 @end
-
 
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wincomplete-implementation"
@@ -28,115 +27,115 @@ static  BOOL LSSafeProtectorKVODebugInfoEnable=NO;
 #pragma clang diagnostic pop
 
 
-@implementation LSSafeProtector
+@implementation XYYSafeProtector
 
-+(void)openSafeProtectorWithIsDebug:(BOOL)isDebug block:(LSSafeProtectorBlock)block
++(void)openSafeProtectorWithIsDebug:(BOOL)isDebug block:(XYYSafeProtectorBlock)block
 {
-    [self openSafeProtectorWithIsDebug:isDebug types: LSSafeProtectorCrashTypeSelector
-     |LSSafeProtectorCrashTypeNSNotificationCenter
-     |LSSafeProtectorCrashTypeNSUserDefaults
-     |LSSafeProtectorCrashTypeNSCache
-     |LSSafeProtectorCrashTypeNSArrayContainer
-     |LSSafeProtectorCrashTypeNSDictionaryContainer
-     |LSSafeProtectorCrashTypeNSStringContainer
-     |LSSafeProtectorCrashTypeNSAttributedStringContainer
-     |LSSafeProtectorCrashTypeNSSetContainer
-     |LSSafeProtectorCrashTypeNSDataContainer
-     |LSSafeProtectorCrashTypeNSOrderedSetContainer block:block];
+    [self openSafeProtectorWithIsDebug:isDebug types: XYYSafeProtectorCrashTypeSelector
+     |XYYSafeProtectorCrashTypeNSNotificationCenter
+     |XYYSafeProtectorCrashTypeNSUserDefaults
+     |XYYSafeProtectorCrashTypeNSCache
+     |XYYSafeProtectorCrashTypeNSArrayContainer
+     |XYYSafeProtectorCrashTypeNSDictionaryContainer
+     |XYYSafeProtectorCrashTypeNSStringContainer
+     |XYYSafeProtectorCrashTypeNSAttributedStringContainer
+     |XYYSafeProtectorCrashTypeNSSetContainer
+     |XYYSafeProtectorCrashTypeNSDataContainer
+     |XYYSafeProtectorCrashTypeNSOrderedSetContainer block:block];
 }
 
-+(void)openSafeProtectorWithIsDebug:(BOOL)isDebug types:(LSSafeProtectorCrashType)types block:(LSSafeProtectorBlock)block
++(void)openSafeProtectorWithIsDebug:(BOOL)isDebug types:(XYYSafeProtectorCrashType)types block:(XYYSafeProtectorBlock)block
 {
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        if (types & LSSafeProtectorCrashTypeSelector) {
+        if (types & XYYSafeProtectorCrashTypeSelector) {
             //开启防止selecetor crash
             [NSObject openSafeProtector];
         }
-        if (types & LSSafeProtectorCrashTypeNSArray) {
+        if (types & XYYSafeProtectorCrashTypeNSArray) {
             [NSArray openSafeProtector];
         }
         
-        if (types & LSSafeProtectorCrashTypeNSMutableArray) {
+        if (types & XYYSafeProtectorCrashTypeNSMutableArray) {
             [NSMutableArray openSafeProtector];
             [NSMutableArray openMRCSafeProtector];
         }
         
-        if (types & LSSafeProtectorCrashTypeNSDictionary) {
+        if (types & XYYSafeProtectorCrashTypeNSDictionary) {
             [NSDictionary openSafeProtector];
         }
         
-        if (types & LSSafeProtectorCrashTypeNSMutableDictionary) {
+        if (types & XYYSafeProtectorCrashTypeNSMutableDictionary) {
             [NSMutableDictionary openSafeProtector];
         }
         
-        if (types & LSSafeProtectorCrashTypeNSStirng) {
+        if (types & XYYSafeProtectorCrashTypeNSStirng) {
             [NSString openSafeProtector];
         }
         
-        if (types & LSSafeProtectorCrashTypeNSMutableString) {
+        if (types & XYYSafeProtectorCrashTypeNSMutableString) {
             [NSMutableString openSafeProtector];
         }
         
-        if (types & LSSafeProtectorCrashTypeNSAttributedString) {
+        if (types & XYYSafeProtectorCrashTypeNSAttributedString) {
             [NSAttributedString openSafeProtector];
         }
         
-        if (types & LSSafeProtectorCrashTypeNSMutableAttributedString) {
+        if (types & XYYSafeProtectorCrashTypeNSMutableAttributedString) {
             [NSMutableAttributedString openSafeProtector];
         }
         
-        if (types & LSSafeProtectorCrashTypeNSNotificationCenter) {
+        if (types & XYYSafeProtectorCrashTypeNSNotificationCenter) {
             [NSNotificationCenter openSafeProtector];
         }
     
-        if (types & LSSafeProtectorCrashTypeKVO) {
+        if (types & XYYSafeProtectorCrashTypeKVO) {
             [NSObject openKVOSafeProtector];
         }
         
-        if (types & LSSafeProtectorCrashTypeNSUserDefaults) {
+        if (types & XYYSafeProtectorCrashTypeNSUserDefaults) {
             [NSUserDefaults openSafeProtector];
         }
         
-        if (types & LSSafeProtectorCrashTypeNSCache) {
+        if (types & XYYSafeProtectorCrashTypeNSCache) {
             [NSCache openSafeProtector];
         }
         
-        if (types & LSSafeProtectorCrashTypeNSSet) {
+        if (types & XYYSafeProtectorCrashTypeNSSet) {
             [NSSet openSafeProtector];
         }
         
-        if (types & LSSafeProtectorCrashTypeNSMutableSet) {
+        if (types & XYYSafeProtectorCrashTypeNSMutableSet) {
             [NSMutableSet openSafeProtector];
         }
         
-        if (types & LSSafeProtectorCrashTypeNSOrderedSet) {
+        if (types & XYYSafeProtectorCrashTypeNSOrderedSet) {
             [NSOrderedSet openSafeProtector];
         }
         
-        if (types & LSSafeProtectorCrashTypeNSMutableOrderedSet) {
+        if (types & XYYSafeProtectorCrashTypeNSMutableOrderedSet) {
             [NSMutableOrderedSet openSafeProtector];
         }
         
-        if (types & LSSafeProtectorCrashTypeNSData) {
+        if (types & XYYSafeProtectorCrashTypeNSData) {
             [NSData openSafeProtector];
         }
         
-        if (types & LSSafeProtectorCrashTypeNSMutableData) {
+        if (types & XYYSafeProtectorCrashTypeNSMutableData) {
             [NSMutableData openSafeProtector];
         }
         
         if (isDebug) {
-            ls_safe_logType=LSSafeProtectorLogTypeAll;
+            XYY_safe_logType=XYYSafeProtectorLogTypeAll;
         }else{
-            ls_safe_logType=LSSafeProtectorLogTypeNone;
+            XYY_safe_logType=XYYSafeProtectorLogTypeNone;
         }
-        lsSafeProtectorBlock=block;
+        xyySafeProtectorBlock=block;
     });
 }
 
 
-+ (void)safe_logCrashWithException:(NSException *)exception crashType:(LSSafeProtectorCrashType)crashType
++ (void)safe_logCrashWithException:(NSException *)exception crashType:(XYYSafeProtectorCrashType)crashType
 {
     // 堆栈数据
     NSArray *callStackSymbolsArr = [NSThread callStackSymbols];
@@ -159,14 +158,14 @@ static  BOOL LSSafeProtectorKVODebugInfoEnable=NO;
     userInfo[@"callStackSymbols"]=[NSString stringWithFormat:@"%@",exception.callStackSymbols];
     userInfo[@"location"]=mainMessage;
     NSException *newException = [NSException exceptionWithName:exception.name reason:exception.reason userInfo:userInfo];
-    if (lsSafeProtectorBlock) {
-        lsSafeProtectorBlock(newException,crashType);
+    if (xyySafeProtectorBlock) {
+        xyySafeProtectorBlock(newException,crashType);
     }
-    LSSafeProtectorLogType logType=ls_safe_logType;
-    if (logType==LSSafeProtectorLogTypeNone) {
+    XYYSafeProtectorLogType logType=XYY_safe_logType;
+    if (logType==XYYSafeProtectorLogTypeNone) {
     }
-    else if (logType==LSSafeProtectorLogTypeAll) {
-        LSSafeLog(@"%@", fullMessage);
+    else if (logType==XYYSafeProtectorLogTypeAll) {
+        XYYSafeLog(@"%@", fullMessage);
         assert(NO&&"检测到崩溃，详情请查看上面信息");
     }
 }
@@ -198,7 +197,6 @@ static  BOOL LSSafeProtectorKVODebugInfoEnable=NO;
             *stop = YES;
         }
     }];
-    
     if (index==0) {
         return mainCallStackSymbolMsg;
     }
@@ -215,7 +213,7 @@ static  BOOL LSSafeProtectorKVODebugInfoEnable=NO;
 }
 void safe_KVOCustomLog(NSString *format,...)
 {
-    if (LSSafeProtectorKVODebugInfoEnable) {
+    if (XYYSafeProtectorKVODebugInfoEnable) {
         va_list args;
         va_start(args, format);
         NSString *string = [[NSString alloc] initWithFormat:format arguments:args];
@@ -224,10 +222,8 @@ void safe_KVOCustomLog(NSString *format,...)
         va_end(args);
     }
 }
-
 +(void)setLogEnable:(BOOL)enable
 {
-    LSSafeProtectorKVODebugInfoEnable=enable;
+    XYYSafeProtectorKVODebugInfoEnable=enable;
 }
-
 @end

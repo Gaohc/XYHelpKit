@@ -1,19 +1,18 @@
-
 //
 //  NSMutableData+Safe.m
-//  LSSafeProtector
-// https://github.com/lsmakethebest/LSSafeProtector
+//  FBSnapshotTestCase
 //
-//  Created by liusong on 2018/9/13.
+//  Created by 高洪成 on 2020/4/23.
 //
 
 #import "NSMutableData+Safe.h"
+
 #import "NSObject+SafeSwizzle.h"
-#import "LSSafeProtector.h"
+#import "XYYSafeProtector.h"
+
 
 
 @implementation NSMutableData (Safe)
-
 +(void)openSafeProtector
 {
     static dispatch_once_t onceToken;
@@ -34,7 +33,7 @@
         object =  [self safe_subdataWithRangeMutableConcreteData:range];
     }
     @catch (NSException *exception) {
-        LSSafeProtectionCrashLog(exception,LSSafeProtectorCrashTypeNSMutableData);
+        XYYSafeProtectionCrashLog(exception,XYYSafeProtectorCrashTypeNSMutableData);
     }
     @finally {
         return object;
@@ -48,7 +47,7 @@
         object =  [self safe_rangeOfDataMutableConcreteData:dataToFind options:mask range:searchRange];
     }
     @catch (NSException *exception) {
-        LSSafeProtectionCrashLog(exception,LSSafeProtectorCrashTypeNSMutableData);
+        XYYSafeProtectionCrashLog(exception,XYYSafeProtectorCrashTypeNSMutableData);
     }
     @finally {
         return object;
@@ -61,7 +60,7 @@
         [self safe_resetBytesInRange:range];
     }
     @catch (NSException *exception) {
-        LSSafeProtectionCrashLog(exception,LSSafeProtectorCrashTypeNSMutableData);
+        XYYSafeProtectionCrashLog(exception,XYYSafeProtectorCrashTypeNSMutableData);
     }
     @finally {
     }
@@ -74,7 +73,7 @@
         [self safe_replaceBytesInRange:range withBytes:bytes];
     }
     @catch (NSException *exception) {
-        LSSafeProtectionCrashLog(exception,LSSafeProtectorCrashTypeNSMutableData);
+        XYYSafeProtectionCrashLog(exception,XYYSafeProtectorCrashTypeNSMutableData);
     }
     @finally {
     }
@@ -86,10 +85,13 @@
         [self safe_replaceBytesInRange:range withBytes:replacementBytes length:replacementLength];
     }
     @catch (NSException *exception) {
-        LSSafeProtectionCrashLog(exception,LSSafeProtectorCrashTypeNSMutableData);
+        XYYSafeProtectionCrashLog(exception,XYYSafeProtectorCrashTypeNSMutableData);
     }
     @finally {
     }
 }
+
+
+
 
 @end

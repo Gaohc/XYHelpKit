@@ -1,17 +1,18 @@
-
 //
 //  NSData+Safe.m
-//  LSSafeProtector
-// https://github.com/lsmakethebest/LSSafeProtector
+//  FBSnapshotTestCase
 //
-//  Created by liusong on 2018/9/13.
+//  Created by 高洪成 on 2020/4/23.
 //
 
 #import "NSData+Safe.h"
+
 #import "NSObject+SafeSwizzle.h"
-#import "LSSafeProtector.h"
+#import "XYYSafeProtector.h"
+
 
 @implementation NSData (Safe)
+
 
 +(void)openSafeProtector
 {
@@ -42,7 +43,7 @@
         object =  [self safe_subdataWithRangeConcreteData:range];
     }
     @catch (NSException *exception) {
-        LSSafeProtectionCrashLog(exception,LSSafeProtectorCrashTypeNSData);
+        XYYSafeProtectionCrashLog(exception,XYYSafeProtectorCrashTypeNSData);
     }
     @finally {
         return object;
@@ -57,7 +58,7 @@
         object =  [self safe_subdataWithRangeZeroData:range];
     }
     @catch (NSException *exception) {
-        LSSafeProtectionCrashLog(exception,LSSafeProtectorCrashTypeNSData);
+        XYYSafeProtectionCrashLog(exception,XYYSafeProtectorCrashTypeNSData);
     }
     @finally {
         return object;
@@ -70,7 +71,7 @@
         object =  [self safe_subdataWithRangeInlineData:range];
     }
     @catch (NSException *exception) {
-        LSSafeProtectionCrashLog(exception,LSSafeProtectorCrashTypeNSData);
+        XYYSafeProtectionCrashLog(exception,XYYSafeProtectorCrashTypeNSData);
     }
     @finally {
         return object;
@@ -83,7 +84,7 @@
         object =  [self safe_subdataWithRangeCFData:range];
     }
     @catch (NSException *exception) {
-        LSSafeProtectionCrashLog(exception,LSSafeProtectorCrashTypeNSData);
+        XYYSafeProtectionCrashLog(exception,XYYSafeProtectorCrashTypeNSData);
     }
     @finally {
         return object;
@@ -100,7 +101,7 @@
         object =  [self safe_rangeOfDataConcreteData:dataToFind options:mask range:searchRange];
     }
     @catch (NSException *exception) {
-        LSSafeProtectionCrashLog(exception,LSSafeProtectorCrashTypeNSData);
+        XYYSafeProtectionCrashLog(exception,XYYSafeProtectorCrashTypeNSData);
     }
     @finally {
         return object;
@@ -115,7 +116,7 @@
         object =  [self safe_rangeOfDataInlineData:dataToFind options:mask range:searchRange];
     }
     @catch (NSException *exception) {
-        LSSafeProtectionCrashLog(exception,LSSafeProtectorCrashTypeNSData);
+        XYYSafeProtectionCrashLog(exception,XYYSafeProtectorCrashTypeNSData);
     }
     @finally {
         return object;
@@ -130,7 +131,7 @@
         object =  [self safe_rangeOfDataZeroData:dataToFind options:mask range:searchRange];
     }
     @catch (NSException *exception) {
-        LSSafeProtectionCrashLog(exception,LSSafeProtectorCrashTypeNSData);
+        XYYSafeProtectionCrashLog(exception,XYYSafeProtectorCrashTypeNSData);
     }
     @finally {
         return object;
@@ -145,7 +146,7 @@
         object =  [self safe_rangeOfDataCFData:dataToFind options:mask range:searchRange];
     }
     @catch (NSException *exception) {
-        LSSafeProtectionCrashLog(exception,LSSafeProtectorCrashTypeNSData);
+        XYYSafeProtectionCrashLog(exception,XYYSafeProtectorCrashTypeNSData);
     }
     @finally {
         return object;
@@ -156,5 +157,3 @@
 
 
 @end
-
-

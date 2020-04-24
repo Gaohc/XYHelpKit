@@ -1,13 +1,14 @@
 //
 //  NSString+Safe.m
-// https://github.com/lsmakethebest/LSSafeProtector
+//  FBSnapshotTestCase
 //
-//  Created by liusong on 2018/4/20.
-//  Copyright © 2018年 liusong. All rights reserved.
+//  Created by 高洪成 on 2020/4/23.
+//
 
 #import "NSString+Safe.h"
 #import "NSObject+SafeSwizzle.h"
-#import "LSSafeProtector.h"
+#import "XYYSafeProtector.h"
+
 
 @implementation NSString (Safe)
 
@@ -24,7 +25,7 @@
          Class dClass=NSClassFromString(@"__NSCFConstantString");
          Class dClass2=NSClassFromString(@"NSTaggedPointerString");
          [self safe_changeAllMethod:dClass];
-         [self safe_changeAllMethod:dClass2];     
+         [self safe_changeAllMethod:dClass2];
         
     });
 }
@@ -65,7 +66,7 @@
         instance = [self safe_initWithString:aString];
     }
     @catch (NSException *exception) {
-        LSSafeProtectionCrashLog(exception,LSSafeProtectorCrashTypeNSStirng);
+        XYYSafeProtectionCrashLog(exception,XYYSafeProtectorCrashTypeNSStirng);
     }
     @finally {
         return instance;
@@ -79,7 +80,7 @@
         has = [self safe_hasPrefix:str];
     }
     @catch (NSException *exception) {
-        LSSafeProtectionCrashLog(exception,LSSafeProtectorCrashTypeNSStirng);
+        XYYSafeProtectionCrashLog(exception,XYYSafeProtectorCrashTypeNSStirng);
     }
     @finally {
         return has;
@@ -93,7 +94,7 @@
         has = [self safe_hasSuffix:str];
     }
     @catch (NSException *exception) {
-        LSSafeProtectionCrashLog(exception,LSSafeProtectorCrashTypeNSStirng);
+        XYYSafeProtectionCrashLog(exception,XYYSafeProtectorCrashTypeNSStirng);
     }
     @finally {
         return has;
@@ -107,7 +108,7 @@
         subString = [self safe_substringFromIndex:from];
     }
     @catch (NSException *exception) {
-        LSSafeProtectionCrashLog(exception,LSSafeProtectorCrashTypeNSStirng);
+        XYYSafeProtectionCrashLog(exception,XYYSafeProtectorCrashTypeNSStirng);
         subString = nil;
     }
     @finally {
@@ -123,7 +124,7 @@
         subString = [self safe_substringToIndex:index];
     }
     @catch (NSException *exception) {
-        LSSafeProtectionCrashLog(exception,LSSafeProtectorCrashTypeNSStirng);
+        XYYSafeProtectionCrashLog(exception,XYYSafeProtectorCrashTypeNSStirng);
         subString = nil;
     }
     @finally {
@@ -138,7 +139,7 @@
         subString = [self safe_substringWithRange:range];
     }
     @catch (NSException *exception) {
-        LSSafeProtectionCrashLog(exception,LSSafeProtectorCrashTypeNSStirng);
+        XYYSafeProtectionCrashLog(exception,XYYSafeProtectorCrashTypeNSStirng);
         subString = nil;
     }
     @finally {
@@ -153,7 +154,7 @@
         characteristic = [self safe_characterAtIndex:index];
     }
     @catch (NSException *exception) {
-        LSSafeProtectionCrashLog(exception,LSSafeProtectorCrashTypeNSStirng);
+        XYYSafeProtectionCrashLog(exception,XYYSafeProtectorCrashTypeNSStirng);
     }
     @finally {
         return characteristic;
@@ -169,7 +170,7 @@
         newStr = [self safe_stringByReplacingOccurrencesOfString:target withString:replacement options:options range:searchRange];
     }
     @catch (NSException *exception) {
-       LSSafeProtectionCrashLog(exception,LSSafeProtectorCrashTypeNSStirng);
+       XYYSafeProtectionCrashLog(exception,XYYSafeProtectorCrashTypeNSStirng);
         newStr = nil;
     }
     @finally {
@@ -186,7 +187,7 @@
         newStr = [self safe_stringByReplacingCharactersInRange:range withString:replacement];
     }
     @catch (NSException *exception) {
-        LSSafeProtectionCrashLog(exception,LSSafeProtectorCrashTypeNSStirng);
+        XYYSafeProtectionCrashLog(exception,XYYSafeProtectorCrashTypeNSStirng);
         newStr = nil;
     }
     @finally {
@@ -194,8 +195,4 @@
     }
 }
 
-
 @end
-
-
-

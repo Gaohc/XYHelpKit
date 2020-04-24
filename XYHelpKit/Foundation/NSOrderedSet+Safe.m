@@ -1,18 +1,17 @@
-
 //
 //  NSOrderedSet+Safe.m
-//  LSSafeProtector
-// https://github.com/lsmakethebest/LSSafeProtector
+//  FBSnapshotTestCase
 //
-//  Created by liusong on 2018/9/13.
+//  Created by 高洪成 on 2020/4/23.
 //
 
 #import "NSOrderedSet+Safe.h"
+
 #import "NSObject+SafeSwizzle.h"
-#import "LSSafeProtector.h"
+#import "XYYSafeProtector.h"
+
 
 @implementation NSOrderedSet (Safe)
-
 
 +(void)openSafeProtector
 {
@@ -30,7 +29,7 @@
         instance = [self safe_initWithObjects:objects count:cnt];
     }
     @catch (NSException *exception) {
-        LSSafeProtectionCrashLog(exception,LSSafeProtectorCrashTypeNSOrderedSet);
+        XYYSafeProtectionCrashLog(exception,XYYSafeProtectorCrashTypeNSOrderedSet);
         
         //以下是对错误数据的处理，把为nil的数据去掉,然后初始化数组
         NSInteger newObjsIndex = 0;
@@ -56,11 +55,12 @@
         object = [self safe_objectAtIndex:idx];
     }
     @catch (NSException *exception) {
-        LSSafeProtectionCrashLog(exception,LSSafeProtectorCrashTypeNSOrderedSet);
+        XYYSafeProtectionCrashLog(exception,XYYSafeProtectorCrashTypeNSOrderedSet);
     }
     @finally {
         return object;
     }
 }
+
 
 @end

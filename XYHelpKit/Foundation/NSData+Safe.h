@@ -1,13 +1,19 @@
 //
 //  NSData+Safe.h
-//  LSSafeProtector
-// https://github.com/lsmakethebest/LSSafeProtector
+//  FBSnapshotTestCase
 //
-//  Created by liusong on 2018/9/13.
+//  Created by 高洪成 on 2020/4/23.
 //
 
 #import <Foundation/Foundation.h>
 
+NS_ASSUME_NONNULL_BEGIN
+
+@interface NSData (Safe)
+
+@end
+
+NS_ASSUME_NONNULL_END
 
 /*
 1. _NSZeroData
@@ -22,7 +28,7 @@
 4._NSInlineData
      [[NSData alloc]initWithContentsOfURL:[NSURL URLWithString:@"https://www.baidu.com/"]]
  
-5.__NSCFData 
+5.__NSCFData
 */
 
 /*
@@ -31,9 +37,3 @@
  2.rangeOfData:options:range:
  
  */
-
-
-
-@interface NSData (Safe)
-
-@end

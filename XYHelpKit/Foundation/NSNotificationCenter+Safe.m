@@ -1,14 +1,14 @@
 //
-// NSNotificationCenter+Safe.m
-// https://github.com/lsmakethebest/LSSafeProtector
+//  NSNotificationCenter+Safe.m
+//  FBSnapshotTestCase
 //
-//  Created by liusong on 2018/4/20.
-//  Copyright © 2018年 liusong. All rights reserved.
+//  Created by 高洪成 on 2020/4/23.
+//
 
 #import "NSNotificationCenter+Safe.h"
+
 #import <objc/message.h>
 #import "NSObject+SafeSwizzle.h"
-
 
 @interface NSObject (NSNotificationCenterSafe)
 @property (nonatomic,assign) BOOL isNotification;
@@ -104,6 +104,7 @@ static NSMutableSet *NSNotificationCenterSafeSwizzledClasses() {
     [observer safe_changeDidDeallocSignal];
     [self safe_addObserver:observer selector:aSelector name:aName object:anObject];
 }
+
 
 
 

@@ -1,17 +1,18 @@
-
 //
 //  NSMutableSet+Safe.m
-//  LSSafeProtector
-// https://github.com/lsmakethebest/LSSafeProtector
+//  FBSnapshotTestCase
 //
-//  Created by liusong on 2018/9/13.
+//  Created by 高洪成 on 2020/4/23.
 //
 
 #import "NSMutableSet+Safe.h"
+
 #import "NSObject+SafeSwizzle.h"
-#import "LSSafeProtector.h"
+#import "XYYSafeProtector.h"
+
 
 @implementation NSMutableSet (Safe)
+
 +(void)openSafeProtector
 {
     static dispatch_once_t onceToken;
@@ -27,7 +28,7 @@
         [self safe_addObject:object];
     }
     @catch (NSException *exception) {
-        LSSafeProtectionCrashLog(exception,LSSafeProtectorCrashTypeNSMutableSet);
+        XYYSafeProtectionCrashLog(exception,XYYSafeProtectorCrashTypeNSMutableSet);
     }
     @finally {
     }
@@ -38,10 +39,13 @@
         [self safe_removeObject:object];
     }
     @catch (NSException *exception) {
-        LSSafeProtectionCrashLog(exception,LSSafeProtectorCrashTypeNSMutableSet);
+        XYYSafeProtectionCrashLog(exception,XYYSafeProtectorCrashTypeNSMutableSet);
     }
     @finally {
     }
 }
+
+
+
 
 @end

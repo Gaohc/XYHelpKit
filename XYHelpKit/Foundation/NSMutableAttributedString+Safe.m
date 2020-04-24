@@ -1,13 +1,14 @@
 //
 //  NSMutableAttributedString+Safe.m
-// https://github.com/lsmakethebest/LSSafeProtector
+//  FBSnapshotTestCase
 //
-//  Created by liusong on 2018/4/20.
-//  Copyright © 2018年 liusong. All rights reserved.
+//  Created by 高洪成 on 2020/4/23.
+//
 
 #import "NSMutableAttributedString+Safe.h"
+
 #import "NSObject+SafeSwizzle.h"
-#import "LSSafeProtector.h"
+#import "XYYSafeProtector.h"
 
 @implementation NSMutableAttributedString (Safe)
 
@@ -72,7 +73,7 @@
         object = [self safe_initWithString:str];
     }
     @catch (NSException *exception) {
-        LSSafeProtectionCrashLog(exception,LSSafeProtectorCrashTypeNSMutableAttributedString);
+        XYYSafeProtectionCrashLog(exception,XYYSafeProtectorCrashTypeNSMutableAttributedString);
     }
     @finally {
         return object;
@@ -87,7 +88,7 @@
         object = [self safe_initWithAttributedString:attrStr];
     }
     @catch (NSException *exception) {
-        LSSafeProtectionCrashLog(exception,LSSafeProtectorCrashTypeNSMutableAttributedString);
+        XYYSafeProtectionCrashLog(exception,XYYSafeProtectorCrashTypeNSMutableAttributedString);
     }
     @finally {
         return object;
@@ -102,7 +103,7 @@
         object = [self safe_initWithString:str attributes:attrs];
     }
     @catch (NSException *exception) {
-        LSSafeProtectionCrashLog(exception,LSSafeProtectorCrashTypeNSMutableAttributedString);
+        XYYSafeProtectionCrashLog(exception,XYYSafeProtectorCrashTypeNSMutableAttributedString);
     }
     @finally {
         return object;
@@ -116,7 +117,7 @@
         [self safe_replaceCharactersInRange:range withString:aString];
     }
     @catch (NSException *exception) {
-        LSSafeProtectionCrashLog(exception,LSSafeProtectorCrashTypeNSMutableAttributedString);
+        XYYSafeProtectionCrashLog(exception,XYYSafeProtectorCrashTypeNSMutableAttributedString);
     }
     @finally {
     }
@@ -128,7 +129,7 @@
         [self safe_setAttributes:attrs range:range];
     }
     @catch (NSException *exception) {
-        LSSafeProtectionCrashLog(exception,LSSafeProtectorCrashTypeNSMutableAttributedString);
+        XYYSafeProtectionCrashLog(exception,XYYSafeProtectorCrashTypeNSMutableAttributedString);
     }
     @finally {
     }
@@ -140,7 +141,7 @@
         [self safe_addAttribute:name value:value range:range];
     }
     @catch (NSException *exception) {
-        LSSafeProtectionCrashLog(exception,LSSafeProtectorCrashTypeNSMutableAttributedString);
+        XYYSafeProtectionCrashLog(exception,XYYSafeProtectorCrashTypeNSMutableAttributedString);
     }
     @finally {
     }
@@ -151,7 +152,7 @@
         [self safe_addAttributes:attrs range:range];
     }
     @catch (NSException *exception) {
-        LSSafeProtectionCrashLog(exception,LSSafeProtectorCrashTypeNSMutableAttributedString);
+        XYYSafeProtectionCrashLog(exception,XYYSafeProtectorCrashTypeNSMutableAttributedString);
     }
     @finally {
     }
@@ -163,7 +164,7 @@
         [self safe_removeAttribute:name range:range];
     }
     @catch (NSException *exception) {
-        LSSafeProtectionCrashLog(exception,LSSafeProtectorCrashTypeNSMutableAttributedString);
+        XYYSafeProtectionCrashLog(exception,XYYSafeProtectorCrashTypeNSMutableAttributedString);
     }
     @finally {
     }
@@ -175,7 +176,7 @@
         [self safe_replaceCharactersInRange:range withAttributedString:attrString];
     }
     @catch (NSException *exception) {
-        LSSafeProtectionCrashLog(exception,LSSafeProtectorCrashTypeNSMutableAttributedString);
+        XYYSafeProtectionCrashLog(exception,XYYSafeProtectorCrashTypeNSMutableAttributedString);
     }
     @finally {
     }
@@ -188,7 +189,7 @@
         [self safe_insertAttributedString:attrString atIndex:loc];
     }
     @catch (NSException *exception) {
-        LSSafeProtectionCrashLog(exception,LSSafeProtectorCrashTypeNSMutableAttributedString);
+        XYYSafeProtectionCrashLog(exception,XYYSafeProtectorCrashTypeNSMutableAttributedString);
     }
     @finally {
     }
@@ -201,7 +202,7 @@
         [self safe_appendAttributedString:attrString];
     }
     @catch (NSException *exception) {
-        LSSafeProtectionCrashLog(exception,LSSafeProtectorCrashTypeNSMutableAttributedString);
+        XYYSafeProtectionCrashLog(exception,XYYSafeProtectorCrashTypeNSMutableAttributedString);
     }
     @finally {
     }
@@ -213,7 +214,7 @@
         [self safe_deleteCharactersInRange:range];
     }
     @catch (NSException *exception) {
-        LSSafeProtectionCrashLog(exception,LSSafeProtectorCrashTypeNSMutableAttributedString);
+        XYYSafeProtectionCrashLog(exception,XYYSafeProtectorCrashTypeNSMutableAttributedString);
     }
     @finally {
     }
@@ -225,7 +226,7 @@
         [self safe_setAttributedString:attrString];
     }
     @catch (NSException *exception) {
-        LSSafeProtectionCrashLog(exception,LSSafeProtectorCrashTypeNSMutableAttributedString);
+        XYYSafeProtectionCrashLog(exception,XYYSafeProtectorCrashTypeNSMutableAttributedString);
     }
     @finally {
     }
@@ -235,5 +236,3 @@
 
 
 @end
-
-
