@@ -21,6 +21,7 @@
 		6003F5B2195388D20070C39A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F591195388D20070C39A /* UIKit.framework */; };
 		6003F5BA195388D20070C39A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6003F5B8195388D20070C39A /* InfoPlist.strings */; };
 		6003F5BC195388D20070C39A /* Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F5BB195388D20070C39A /* Tests.m */; };
+		6655F5362456E4EC00FE4A42 /* XYTmpView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6655F5352456E4EC00FE4A42 /* XYTmpView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		667B472C2452E747007D9A29 /* XYViewTestKVO.m in Sources */ = {isa = PBXBuildFile; fileRef = 667B472B2452E747007D9A29 /* XYViewTestKVO.m */; };
 		667B472F2452E787007D9A29 /* NSNotificationTestObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 667B472E2452E787007D9A29 /* NSNotificationTestObject.m */; };
 		71719F9F1E33DC2100824A3D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 71719F9D1E33DC2100824A3D /* LaunchScreen.storyboard */; };
@@ -63,6 +64,8 @@
 		6003F5BB195388D20070C39A /* Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Tests.m; sourceTree = "<group>"; };
 		606FC2411953D9B200FFA9A0 /* Tests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Tests-Prefix.pch"; sourceTree = "<group>"; };
 		635AC88CAF8D4A17D49066A7 /* Pods_XYHelpKit_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_XYHelpKit_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6655F5342456E4EC00FE4A42 /* XYTmpView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XYTmpView.h; sourceTree = "<group>"; };
+		6655F5352456E4EC00FE4A42 /* XYTmpView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XYTmpView.m; sourceTree = "<group>"; };
 		667B472A2452E747007D9A29 /* XYViewTestKVO.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XYViewTestKVO.h; sourceTree = "<group>"; };
 		667B472B2452E747007D9A29 /* XYViewTestKVO.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XYViewTestKVO.m; sourceTree = "<group>"; };
 		667B472D2452E787007D9A29 /* NSNotificationTestObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NSNotificationTestObject.h; sourceTree = "<group>"; };
@@ -143,6 +146,8 @@
 				873B8AEA1B1F5CCA007FD442 /* Main.storyboard */,
 				6003F5A5195388D20070C39A /* XYViewController.h */,
 				6003F5A6195388D20070C39A /* XYViewController.m */,
+				6655F5342456E4EC00FE4A42 /* XYTmpView.h */,
+				6655F5352456E4EC00FE4A42 /* XYTmpView.m */,
 				667B472A2452E747007D9A29 /* XYViewTestKVO.h */,
 				667B472B2452E747007D9A29 /* XYViewTestKVO.m */,
 				667B472D2452E787007D9A29 /* NSNotificationTestObject.h */,
@@ -255,7 +260,7 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = XY;
-				LastUpgradeCheck = 0720;
+				LastUpgradeCheck = 1130;
 				ORGANIZATIONNAME = gaohongcheng;
 				TargetAttributes = {
 					6003F5AD195388D20070C39A = {
@@ -396,6 +401,7 @@
 				667B472F2452E787007D9A29 /* NSNotificationTestObject.m in Sources */,
 				6003F59E195388D20070C39A /* XYAppDelegate.m in Sources */,
 				6003F5A7195388D20070C39A /* XYViewController.m in Sources */,
+				6655F5362456E4EC00FE4A42 /* XYTmpView.m in Sources */,
 				667B472C2452E747007D9A29 /* XYViewTestKVO.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
 			);
@@ -451,23 +457,37 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -491,22 +511,36 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;

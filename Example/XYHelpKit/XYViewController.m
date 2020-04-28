@@ -7,9 +7,11 @@
 //
 
 #import "XYViewController.h"
-#import <XYYSafeProtector.h>
+//#import <XYYSafeProtector.h>
 #import "NSNotificationTestObject.h"
 #import <objc/runtime.h>
+#import "XYTmpView.h"
+#import <XYYException.h>
 
 #define   WIDTH     [UIScreen mainScreen].bounds.size.width
 #define   HEIGHT    [UIScreen mainScreen].bounds.size.height
@@ -28,20 +30,21 @@
 -(void)getName;
 -(void)getAge:(NSInteger)age;
 -(id)getSafeObject;
-
 @end
-
 @implementation XYViewController
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
-    self.dataSource = @[@"testUnrecognizedSelector",@"testKVO",@"testArray",@"testMutableArray",@"testDictionary",@"testMutableDictionary",@"testString",@"testMutableString",@"testAttributedString",@"testMutableAttributedString",@"testNotification",@"testNSUserDefaults",@"testNSCache:",@"testNSSet:",@"testNSMutableSet:",@"testNSOrderSet:",@"testNSMutableOrderSet:",@"testNSData:",@"testNSMutableData:"];
+    self.dataSource = @[@"testUnrecognizedSelector",@"testKVO",@"testArray",@"testMutableArray",@"testDictionary",@"testMutableDictionary",@"testString",@"testMutableString",@"testAttributedString",@"testMutableAttributedString",@"testNotification",@"testNSSet:",@"testNSMutableSet",@"testBadAccesscrash"];
    
-    NSLog(@"我是放崩溃框架");
+    NSLog(@"我是预防崩溃框架");
     [self.view addSubview:self.dataTV];
     [self.view addSubview:self.debugPreButton];
-    [self.view addSubview:self.releasePreButton];
+//    [self.view addSubview:self.releasePreButton];
+    
+}
+-(void)someMetod{
     
 }
 -(UITableView *)dataTV{
@@ -79,23 +82,18 @@
 
 -(void)startSafe:(BOOL)isDebug
 {
-    self.debugPreButton.enabled=NO;
-    self.releasePreButton.enabled=NO;
-//    self.testButton.enabled=NO;
-//    self.productionButton.enabled=NO;
-//    IsDebug=YES代表开发环境  捕捉到崩溃 ，会打印崩溃信息，同时利用断言闪退，会回调block
-//    IsDebug=NO，代表线上环境，拦截到崩溃不打印崩溃信息，也不会断言闪退，会回调block
-    //开启所有防护(不包含KVO防护)
-//    [LSSafeProtector openSafeProtectorWithIsDebug:isDebug block:^(NSException *exception, LSSafeProtectorCrashType crashType) {
-//        //[Bugly reportException:exception];
-//        //此方法方便在bugly后台查看bug崩溃位置，而不用点击跟踪数据，再点击crash_attach.log来查看崩溃位置
-//        [Bugly reportExceptionWithCategory:3 name:exception.name reason:[NSString stringWithFormat:@"%@  崩溃位置:%@",exception.reason,exception.userInfo[@"location"]] callStack:@[exception.userInfo[@"callStackSymbols"]] extraInfo:exception.userInfo terminateApp:NO];
-//    }];
-    //开启所有防护包含KVO防护
-     [XYYSafeProtector openSafeProtectorWithIsDebug:isDebug types:XYYSafeProtectorCrashTypeAll block:^(NSException *exception, XYYSafeProtectorCrashType crashType) {
-       }];
-    //打开KVO添加，移除的日志信息
-    [XYYSafeProtector setLogEnable:YES];
+       self.debugPreButton.enabled=NO;
+       self.releasePreButton.enabled=NO;
+    
+    if (1) {
+        [XYYException configExceptionCategory:XYYExceptionGuardAllExceptZombie];
+        [XYYException startGuardException];
+        [XYYException addZombieObjectArray:@[UIView.class]];
+    }
+        
+//    NSTimer * timer =[NSTimer scheduledTimerWithTimeInterval:3.0 target:self selector:@selector(someMetod) userInfo:nil repeats:YES];
+
+
 }
 -(UIButton *)debugPreButton{
     if (!_debugPreButton) {
@@ -138,18 +136,16 @@
      4.添加移除keypath=nil;
      5.添加移除observer=nil;
      6.dealloc时自动移除观察者，俗称自释放KVO
-     
-     
      */
-    
-    
-    
+
+
+
     //添加值为nil
     //    [self addObserver:nil forKeyPath:@"fsd" options:(NSKeyValueObservingOptionNew) context:nil];
     //    [self addObserver:self.testView1 forKeyPath:nil options:(NSKeyValueObservingOptionNew) context:nil];
-    
-    
-    
+
+
+
     //演示添加 然后自己移除 然后交换的dealloc方法里就不会在移除了
     //    LSViewTestKVO *view1 =[LSViewTestKVO new];
     //    [self.view addSubview:view1];
@@ -158,8 +154,8 @@
     //    [self addObserver:self.testView1 forKeyPath:@"kvoTest" options:(NSKeyValueObservingOptionNew) context:nil];
     //    [self removeObserver:self.testView1 forKeyPath:@"kvoTest"];
     //    [self.testView1 removeFromSuperview];
-    
-    
+
+
     //重复移除
     //    LSViewTestKVO *view1 =[LSViewTestKVO new];
     //    [self.view addSubview:view1];
@@ -168,8 +164,8 @@
     //    [self addObserver:self.testView1 forKeyPath:@"kvoTest" options:(NSKeyValueObservingOptionNew) context:nil];
     //    [self removeObserver:self.testView1 forKeyPath:@"kvoTest"];
     //    [self removeObserver:self.testView1 forKeyPath:@"kvoTest" context:nil];
-    
-    
+
+
     //重复添加
     //                LSViewTestKVO *view1 =[LSViewTestKVO new];
     //        [self.view addSubview:view1];
@@ -177,18 +173,18 @@
     //        self.testView1.con=self;
     //                [self addObserver:self.testView1 forKeyPath:@"kvoTest" options:(NSKeyValueObservingOptionNew) context:nil];
     //        [self addObserver:self.testView1 forKeyPath:@"kvoTest" options:(NSKeyValueObservingOptionNew) context:nil];
-    
-    
-    
-    
+
+
+
+
     //    dealloc时没有移除obverser
     //        LSViewTestKVO *view1 =[LSViewTestKVO new];
     //        [self.view addSubview:view1];
     //        self.testView1=view1;
     //        self.testView1.con=self;
     //        [self.testView1 addObserver:self.testView1 forKeyPath:@"kvoTest" options:(NSKeyValueObservingOptionNew) context:nil];
-    
-    
+
+
     self.testObject=[[NSNotificationTestObject alloc]init];
     //       self.testObject.kvo=self;
     //       [self.testObject addObserver:self.testObject forKeyPath:@"fractionCompleted" options:(NSKeyValueObservingOptionNew) context:@"fsd22"];
@@ -209,7 +205,7 @@
     //    [self.testObject addObserver:self.testObject forKeyPath:@"name" options:(NSKeyValueObservingOptionNew) context:nil];
     //       [self addObserver:self.testObject forKeyPath:@"name" options:(NSKeyValueObservingOptionNew) context:nil];
     //     [self addObserver:self.testObject forKeyPath:@"name" options:(NSKeyValueObservingOptionNew) context:nil];
-    
+
     //         [self removeObserver:self.testObject forKeyPath:@"name"];
     //        [self removeObserver:self.testObject forKeyPath:@"name"];
     //        [self removeObserver:self.testObject forKeyPath:@"name"];
@@ -219,11 +215,11 @@
     //        self.testObject=nil;
     //        self.name=@"fs";
     //        [self.testView1  removeFromSuperview];
-    
-    
-    
-    
-    
+
+
+
+
+
     //    self.testObject2=[[NSNotificationTestObject alloc]init];
     //     [self.testView1 addObserver:self.testObject2 forKeyPath:@"frame" options:(NSKeyValueObservingOptionNew) context:@"fsd"];
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
@@ -240,12 +236,12 @@
     //
     //        self.testView1.frame=CGRectZero;
     //    });
-    
+
     //        [self addObserver:self.testObject forKeyPath:@"kvoTest" options:(NSKeyValueObservingOptionNew) context:nil];
-    
+
     //        [self.testView1 removeFromSuperview];
     //        self.testObject=nil;
-    
+
     //        self.kvoTest=YES;
 }
 -(void)testArray
@@ -266,14 +262,14 @@
     NSLog(@"%@",[[objc_getClass("__NSArrayM") class] superclass]);
     NSLog(@"%@",[[objc_getClass("__NSCFArray") class] superclass]);
     NSLog(@"%@",[[objc_getClass("__NSPlaceholderArray") class] superclass]);
-    
+
     [array1 addObject:nil];
     [array1 insertObject:@"" atIndex:10];
     [array1 objectAtIndex:10];
     [array1 removeObjectAtIndex:10];
     [array1 replaceObjectAtIndex:10 withObject:@""];
     [array1 removeObjectsInRange:NSMakeRange(0, 10)];
-    [array1 replaceObjectsInRange:NSMakeRange(0, 10) withObjectsFromArray:[NSArray array]];
+//    [array1 replaceObjectsInRange:NSMakeRange(0, 10) withObjectsFromArray:[NSArray array]];
     NSArray *a1=[NSArray array];
     a[10];
     array1[100];
@@ -284,7 +280,7 @@
     strings[2]=@"222";
     [NSArray arrayWithObjects:strings count:3];
     //        [[NSArray alloc]initWithObjects:strings count:3];
-    
+
     //        NSArray *a1=[NSArray array];
     //        a1[10];
     //
@@ -298,7 +294,7 @@
 
 -(void)testMutableArray
 {
-    
+
     NSMutableArray *arr=[NSMutableArray array];
     [arr removeObjectAtIndex:1];
     [arr removeObjectsInRange:NSMakeRange(0, 1)];
@@ -310,15 +306,15 @@
 //    array[10];
     [array removeObjectAtIndex:10];
     [array addObject:@"fs"];
-    [array replaceObjectAtIndex:10 withObject:@"fs"];
+//    [array replaceObjectAtIndex:10 withObject:@"fs"];
     NSString *value=nil;
     NSString *strings[3];
     strings[0]=@"000";
     strings[1]=value;
     strings[2]=@"222";
-    [NSMutableArray arrayWithObjects:strings count:3];
-    [[NSMutableArray alloc]initWithObjects:strings count:3];
-    
+//    [NSMutableArray arrayWithObjects:strings count:3];
+//    [[NSMutableArray alloc]initWithObjects:strings count:3];
+
     NSMutableArray *a1=[NSMutableArray array];
     //    dispatch_async(dispatch_get_global_queue(0, 0), ^{
     a1[10];
@@ -328,30 +324,34 @@
 
 -(void)testDictionary
 {
+
+//    NSArray *a=[NSArray arrayWithObjects:@"",@"s", nil];
+//    NSLog(@"%@",[[objc_getClass("__NSDictionaryI") class] superclass]);
+//    NSLog(@"%@",[[objc_getClass("__NSSingleEntryDictionaryI") class] superclass]);
+//    NSLog(@"%@",[[objc_getClass("__NSDictionary0") class] superclass]);
+//    NSLog(@"%@",[[objc_getClass("__NSFrozenDictionaryM") class] superclass]);
+//    NSLog(@"%@",[[objc_getClass("__NSDictionaryM") class] superclass]);
+//    NSLog(@"%@",[[objc_getClass("__NSCFDictionary") class] superclass]);
+//    NSLog(@"%@",[[objc_getClass("__NSPlaceholderDictionary") class] superclass]);
+//
+//    NSString *value=nil;
+//    NSString *strings[3];
+//    strings[0]=@"000";
+//    strings[1]=value;
+//    strings[2]=@"222";
+//    [[NSDictionary alloc] initWithObjects:strings forKeys:strings count:3];
+//    [[NSDictionary alloc] initWithObjects:@[@"key1",value,@"key3"] forKeys:@[@"value1",value,@"value3"]];
+//    NSDictionary *dic1=@{};
+//    dic1[value];
+//    NSDictionary *dic2=@{@"key1":@"vlaue1"};
+//    dic2[value];
+//
+//    NSDictionary *dic3=@{@"key1":@"vlaue1",@"key2":@"value2"};
+//    dic3[value];
     
-    NSArray *a=[NSArray arrayWithObjects:@"",@"s", nil];
-    NSLog(@"%@",[[objc_getClass("__NSDictionaryI") class] superclass]);
-    NSLog(@"%@",[[objc_getClass("__NSSingleEntryDictionaryI") class] superclass]);
-    NSLog(@"%@",[[objc_getClass("__NSDictionary0") class] superclass]);
-    NSLog(@"%@",[[objc_getClass("__NSFrozenDictionaryM") class] superclass]);
-    NSLog(@"%@",[[objc_getClass("__NSDictionaryM") class] superclass]);
-    NSLog(@"%@",[[objc_getClass("__NSCFDictionary") class] superclass]);
-    NSLog(@"%@",[[objc_getClass("__NSPlaceholderDictionary") class] superclass]);
-    
-    NSString *value=nil;
-    NSString *strings[3];
-    strings[0]=@"000";
-    strings[1]=value;
-    strings[2]=@"222";
-    [[NSDictionary alloc] initWithObjects:strings forKeys:strings count:3];
-    [[NSDictionary alloc] initWithObjects:@[@"key1",value,@"key3"] forKeys:@[@"value1",value,@"value3"]];
-    NSDictionary *dic1=@{};
-    dic1[value];
-    NSDictionary *dic2=@{@"key1":@"vlaue1"};
-    dic2[value];
-    
-    NSDictionary *dic3=@{@"key1":@"vlaue1",@"key2":@"value2"};
-    dic3[value];
+    id value = nil;
+    NSDictionary* dic = @{@"key":value};
+    NSLog(@"dic:%@",dic);
 }
 
 -(void)testMutableDictionary
@@ -360,14 +360,14 @@
     NSString *value=nil;
     NSMutableDictionary *params=[NSMutableDictionary dictionary];
     [params setObject:@"fse" forKey:value];
-    
+
     //  dict是  __NSFrozenDictionaryM
     NSMutableDictionary *dict=[[NSMutableDictionary dictionary] copy];
     [dict setObject:@"fsd" forKey:@"FSD"];
     [dict setObject:@"fsd" forKey:value];
     dict[value]=@"fs";
 
-    
+
     //dict2是  dict2    __NSCFDictionary
     [[NSUserDefaults standardUserDefaults] setObject:[NSMutableDictionary dictionary] forKey:@"name"];
     NSMutableDictionary *dict2=[[NSUserDefaults standardUserDefaults] objectForKey:@"name"];
@@ -375,21 +375,21 @@
     [dict2 setObject:@"fsd" forKey:value];
     [dict2 removeObjectForKey:value];
 
-    NSString *strings[3];
-    strings[0]=@"000";
-    strings[1]=value;
-    strings[2]=@"222";
-    [[NSMutableDictionary alloc] initWithObjects:strings forKeys:strings count:3];
-    [[NSMutableDictionary alloc] initWithObjects:@[@"key1",value,@"key3"] forKeys:@[@"value1",value,@"value3"]];
-    NSMutableDictionary *dic1=[NSMutableDictionary dictionary];
-    dic1[value]=@"";
-    dic1[@"d"]=value;
+//    NSString *strings[3];
+//    strings[0]=@"000";
+//    strings[1]=value;
+//    strings[2]=@"222";
+//    [[NSMutableDictionary alloc] initWithObjects:strings forKeys:strings count:3];
+//    [[NSMutableDictionary alloc] initWithObjects:@[@"key1",value,@"key3"] forKeys:@[@"value1",value,@"value3"]];
+//    NSMutableDictionary *dic1=[NSMutableDictionary dictionary];
+//    dic1[value]=@"";
+//    dic1[@"d"]=value;
 }
 
 
 -(void)testString
 {
-    
+
     NSArray *a=@[@"fs",@"s"];
     NSString *s1=@"128943rfsdsfssds";
     NSString *s122=[NSString stringWithFormat:@"fs"];
@@ -402,36 +402,36 @@
     [s1 substringFromIndex:100];
     [s1 substringToIndex:100];
     [s1 substringWithRange:NSMakeRange(0, 100)];
-    [s1 characterAtIndex:100];
-    [s1 stringByReplacingOccurrencesOfString:@"" withString:value];
-    [s1 stringByReplacingOccurrencesOfString:@"" withString:@"" options:0 range:NSMakeRange(0, 100)];
-    [s1 stringByReplacingCharactersInRange:NSMakeRange(0, 100) withString:@"fs"];
-    [s1 hasPrefix:value];
-    [s1 hasSuffix:value];
+//    [s1 characterAtIndex:100];
+//    [s1 stringByReplacingOccurrencesOfString:@"" withString:value];
+//    [s1 stringByReplacingOccurrencesOfString:@"" withString:@"" options:0 range:NSMakeRange(0, 100)];
+//    [s1 stringByReplacingCharactersInRange:NSMakeRange(0, 100) withString:@"fs"];
+//    [s1 hasPrefix:value];
+//    [s1 hasSuffix:value];
 }
 
 -(void)testMutableString
 {
     NSMutableString *s1=[NSMutableString stringWithString: @"hello world"];
     NSString *value=nil;
-    NSString *ss=[[NSMutableString alloc]initWithString:value];
+//    NSString *ss=[[NSMutableString alloc]initWithString:value];
     [s1 substringFromIndex:100];
     [s1 substringToIndex:100];
     [s1 substringWithRange:NSMakeRange(0, 100)];
-    [s1 characterAtIndex:100];
-    [s1 stringByReplacingOccurrencesOfString:@"" withString:value];
-    [s1 stringByReplacingOccurrencesOfString:@"" withString:@"" options:0 range:NSMakeRange(0, 100)];
-    [s1 stringByReplacingCharactersInRange:NSMakeRange(0, 100) withString:@"fs"];
-    [s1 hasPrefix:value];
-    [s1 hasSuffix:value];
+//    [s1 characterAtIndex:100];
+//    [s1 stringByReplacingOccurrencesOfString:@"" withString:value];
+//    [s1 stringByReplacingOccurrencesOfString:@"" withString:@"" options:0 range:NSMakeRange(0, 100)];
+//    [s1 stringByReplacingCharactersInRange:NSMakeRange(0, 100) withString:@"fs"];
+//    [s1 hasPrefix:value];
+//    [s1 hasSuffix:value];
     NSLog(@"NSMutableString特有crash");
-    [s1 replaceCharactersInRange:NSMakeRange(0, 100) withString:@""];
-    [s1 replaceOccurrencesOfString:@"" withString:@"" options:0 range:NSMakeRange(0, 100)];
-    [s1 insertString:value atIndex:100];
-    [s1 deleteCharactersInRange:NSMakeRange(0,100)];
+//    [s1 replaceCharactersInRange:NSMakeRange(0, 100) withString:@""];
+//    [s1 replaceOccurrencesOfString:@"" withString:@"" options:0 range:NSMakeRange(0, 100)];
+//    [s1 insertString:value atIndex:100];
+//    [s1 deleteCharactersInRange:NSMakeRange(0,100)];
     [s1 appendString:value];
-    [s1 setString:value];
-    
+//    [s1 setString:value];
+
 }
 -(void)testAttributedString
 {
@@ -497,15 +497,14 @@
 }
 
 - (void)testNSSet{
-    
     [NSSet setWithObject:nil];
     NSString *value=nil;
     NSSet *set = [[NSSet alloc]initWithObjects:value,@"fsd", nil];
     NSSet *set2 = [NSSet setWithObjects:@"fsd",value, nil];
-    
+
 }
 - (void)testNSMutableSet{
-    
+
     [NSMutableSet setWithObject:nil];
     NSString *value=nil;
     NSMutableSet *set = [[NSMutableSet alloc]initWithObjects:value,@"fsd", nil];
@@ -513,7 +512,7 @@
     NSMutableSet *set3=[NSMutableSet set];
     [set3 removeObject:value];
     [set3 addObject:value];
- 
+
 }
 - (void)testNSOrderSet{
    NSOrderedSet *set = [NSOrderedSet orderedSet];
@@ -534,19 +533,18 @@
 
 }
 - (void)testNSData {
-    
+
     //_NSZeroData
    NSData *data1 = [NSData data];
     [data1 subdataWithRange:NSMakeRange(0, 100)];
     [data1 rangeOfData:nil options:0 range:NSMakeRange(0, 100)];
-    
+
     //_NSInlineData
     char *s="fssfs";
     NSData *data2 = [NSData dataWithBytes:&s length:5];
     [data2 subdataWithRange:NSMakeRange(0, 100)];
     [data2 rangeOfData:nil options:0 range:NSMakeRange(0, 100)];
 
-    
     //NSConcreteData
     NSMutableDictionary *params=[NSMutableDictionary dictionary];
     [params setValue:@"fsdfsdfsd" forKey:@"1"];
@@ -554,19 +552,26 @@
     [params setValue:@"fsdfsdfsd" forKey:@"3"];
     [params setValue:@"fsdfsdfsd" forKey:@"4"];
     NSData *date3 = [NSJSONSerialization dataWithJSONObject:params options:0 error:nil];
-    
 }
 - (void)testNSMutableData{
-    
+
     //NSConcreteMutableData
     NSMutableData *data1 = [NSMutableData data];
     [data1 subdataWithRange:NSMakeRange(0, 100)];
     [data1 rangeOfData:nil options:0 range:NSMakeRange(0, 100)];
     [data1 resetBytesInRange:NSMakeRange(0, 100)];
-    
+
     NSMutableData *data2 = [NSMutableData data];
     [data1 replaceBytesInRange:NSMakeRange(0, 10) withBytes:data2.bytes length:10];
     [data1 replaceBytesInRange:NSMakeRange(0, 10) withBytes:"fsd"];
+}
+-(void)testBadAccesscrash{
+    __autoreleasing XYTmpView* myView;
+    @autoreleasepool {
+        myView = [XYTmpView new];
+        NSLog(@"inside autoreleasepool myView:%@", myView);
+    }
+    NSLog(@"outside autoreleasepool myView:%@", myView);
 }
 - (void)didReceiveMemoryWarning
 {
